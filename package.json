@@ -1,7 +1,7 @@
 {
   "name": "frontenduzachi",
   "private": true,
-  "homepage": "https://Uriel1021.github.io/Aplicacion-web-UZACHI",
+  "homepage": "https://Uriel1021.github.io/Frtont-End-UZACHI",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "react": "^18.2.0",
     "react-calendar": "^5.0.0",
     "react-dom": "^18.2.0",
