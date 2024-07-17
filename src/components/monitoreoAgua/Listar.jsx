@@ -78,6 +78,7 @@ const Listar = () => {
             <tr>
               <th scope="col" className="px-2 sm:px-6 py-4">Comunidad</th>
               <th scope="col" className="px-2 sm:px-6 py-4">Paraje</th>
+              <th scope="col" className="px-2 sm:px-6 py-4">Uso</th>
               <th scope="col" className="px-2 sm:px-6 py-4 hidden md:table-cell">Fecha</th>
               <th scope="col" className="px-2 sm:px-6 py-4">Acciones</th>
             </tr>
@@ -87,17 +88,18 @@ const Listar = () => {
               <tr key={monitoreo.id} className="bg-white border-b hover:bg-green-50">
                 <td className="px-2 sm:px-6 py-3">{monitoreo.comunidad}</td>
                 <td className="px-2 sm:px-6 py-3">{monitoreo.paraje}</td>
+                <td className="px-2 sm:px-6 py-3">{monitoreo.uso}</td>
                 <td className="px-2 sm:px-6 py-3 hidden md:table-cell">{monitoreo.fecha}</td>
                 <td className="px-2 sm:px-6 py-3 flex justify-center items-center space-x-1 sm:space-x-2">
-                  <button onClick={() => handleVisualizarMonitoreo(monitoreo.id)} className="border border-blue-800 text-blue-800 hover:border-blue-700 hover:text-blue-900 flex items-center px-1 sm:px-2 py-1 rounded">
+                  <button onClick={() => handleVisualizarMonitoreo(monitoreo.id)} className="border border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-900 flex items-center px-1 sm:px-2 py-1 rounded">
                     <FaEye className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
                     <span className="hidden sm:inline">Visualizar</span>
                   </button>
-                  <button onClick={() => handleEditarMonitoreo(monitoreo.id)} className="border border-gray-800 text-gray-800 hover:border-yellow-700 hover:text-yellow-700 flex items-center px-1 sm:px-2 py-1 rounded">
+                  <button onClick={() => handleEditarMonitoreo(monitoreo.id)} className="border border-gray-500 text-gray-500 hover:border-yellow-700 hover:text-yellow-700 flex items-center px-1 sm:px-2 py-1 rounded">
                     <FaEdit className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
                     <span className="hidden sm:inline">Editar</span>
                   </button>
-                  <button onClick={() => handleEliminarMonitoreo(monitoreo.id)} className="border border-red-800 text-red-800 hover:border-red-700 hover:text-red-700 flex items-center px-1 sm:px-2 py-1 rounded">
+                  <button onClick={() => handleEliminarMonitoreo(monitoreo.id)} className="border border-red-500 text-red-500 hover:border-red-700 hover:text-red-700 flex items-center px-1 sm:px-2 py-1 rounded">
                     <FaTrash className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
                     <span className="hidden sm:inline">Eliminar</span>
                   </button>
