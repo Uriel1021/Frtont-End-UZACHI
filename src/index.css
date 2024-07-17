@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elimina cualquier configuración de fondo y color previa */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define el fondo blanco para cubrir toda la pantalla */
+.bg-white {
+  min-height: 100vh; /* Asegura que cubra toda la altura de la pantalla */
+  background-color: #ffffff; /* Define el color de fondo blanco */
+}
