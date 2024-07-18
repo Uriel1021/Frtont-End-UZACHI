@@ -73,13 +73,13 @@ const Listar = () => {
         </button>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-center text-black-700 bg-gray-500">
+        <table className="w-full text-sm text-center text-black-700 bg-gray-300">
           <thead className="text-xs text-green-100 uppercase bg-green-800">
             <tr>
               <th scope="col" className="px-2 sm:px-6 py-4">Comunidad</th>
               <th scope="col" className="px-2 sm:px-6 py-4">Paraje</th>
-              <th scope="col" className="px-2 sm:px-6 py-4">Uso</th>
-              <th scope="col" className="px-2 sm:px-6 py-4 hidden md:table-cell">Fecha</th>
+              <th scope="col" className="px-2 sm:px-6 py-4 hidden sm:table-cell">Uso</th>
+              <th scope="col" className="px-2 sm:px-6 py-4 hidden lg:table-cell">Fecha</th>
               <th scope="col" className="px-2 sm:px-6 py-4">Acciones</th>
             </tr>
           </thead>
@@ -88,8 +88,8 @@ const Listar = () => {
               <tr key={monitoreo.id} className="bg-white border-b hover:bg-green-50">
                 <td className="px-2 sm:px-6 py-3">{monitoreo.comunidad}</td>
                 <td className="px-2 sm:px-6 py-3">{monitoreo.paraje}</td>
-                <td className="px-2 sm:px-6 py-3">{monitoreo.uso}</td>
-                <td className="px-2 sm:px-6 py-3 hidden md:table-cell">{monitoreo.fecha}</td>
+                <td className="px-2 sm:px-6 py-3 hidden sm:table-cell">{monitoreo.uso}</td>
+                <td className="px-2 sm:px-6 py-3 hidden lg:table-cell">{monitoreo.fecha}</td>
                 <td className="px-2 sm:px-6 py-3 flex justify-center items-center space-x-1 sm:space-x-2">
                   <button onClick={() => handleVisualizarMonitoreo(monitoreo.id)} className="border border-blue-500 text-blue-500 hover:border-blue-700 hover:text-blue-900 flex items-center px-1 sm:px-2 py-1 rounded">
                     <FaEye className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
@@ -109,17 +109,15 @@ const Listar = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between items-center mt-4">
-        <button onClick={prevPage} disabled={currentPage === 1} className="bg-gray-400 text-white py-2 px-4 rounded flex items-center space-x-2">
-          <FaArrowLeft className="w-4 h-4" />
-          <span className="hidden sm:inline">Anterior</span>
+      <div className="flex justify-center items-center space-x-4 mt-4">
+        <button onClick={prevPage} className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2">
+          <FaArrowLeft className="w-6 h-6" />
+          <span>Anterior</span>
         </button>
-        <div>
-          Mostrando {indexOfFirstRecord + 1}-{Math.min(indexOfLastRecord, monitoreos.length)} de {monitoreos.length}
-        </div>
-        <button onClick={nextPage} disabled={currentPage === totalPages} className="bg-gray-400 text-white py-2 px-4 rounded flex items-center space-x-2">
-          <span className="hidden sm:inline">Siguiente</span>
-          <FaArrowRight className="w-4 h-4" />
+        <span>Página {currentPage} de {totalPages}</span>
+        <button onClick={nextPage} className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2">
+          <FaArrowRight className="w-6 h-6" />
+          <span>Siguiente</span>
         </button>
       </div>
     </div>
