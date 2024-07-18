@@ -67,13 +67,13 @@ const Listar = () => {
         Monitoreo de Agua
       </h1>
       <div className="flex justify-between items-center mb-4">
-        <button onClick={handleNuevoMonitoreo} className="border border-blue-800 text-blue-800 py-2 px-4 rounded flex items-center space-x-2">
+        <button onClick={handleNuevoMonitoreo} className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2">
           <FaPlusCircle className="w-6 h-6" />
           <span className="hidden sm:inline">Nuevo monitoreo</span>
         </button>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-center text-gray-700 bg-gray-200">
+        <table className="w-full text-sm text-center text-black-700 bg-gray-500">
           <thead className="text-xs text-green-100 uppercase bg-green-800">
             <tr>
               <th scope="col" className="px-2 sm:px-6 py-4">Comunidad</th>
