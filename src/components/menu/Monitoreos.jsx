@@ -12,17 +12,19 @@ const Monitoreos = () => {
   ];
 
   return (
-    <div className="-mt-40 mb-8 p-8">
-      <h1 className="text-center text-4xl font-bold text-green-800 mb-8">Monitoreos</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="mt-8 mb-8 p-4 md:p-8">
+      <h1 className="text-center text-2xl md:text-4xl font-bold text-green-800 mb-8">Monitoreos</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
         {menuItems.map((item, index) => (
-          <div key={index} className={`${item.bgColor} p-6 rounded-lg shadow-md flex items-center space-x-4`}>
-            <img src={item.icon} alt={item.title} className="w-24 h-24 rounded-full" />
-            <div>
-              <h2 className="text-xl font-bold">{item.title}</h2>
-              <p>{item.description}</p>
+          <div key={index} className={`${item.bgColor} p-4 md:p-6 rounded-lg shadow-md flex flex-col items-center md:items-start`}>
+            <img src={item.icon} alt={item.title} className="w-12 h-12 md:w-24 md:h-24 rounded-full mb-4 md:mb-0" />
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-lg md:text-xl font-bold">{item.title}</h2>
+              <p className="hidden md:block">{item.description}</p>
+            </div>
+            <div className="w-full mt-2 flex justify-end">
               <button 
-                className="mt-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
+                className="bg-blue-500 text-white py-1 px-3 md:py-2 md:px-4 rounded hover:bg-blue-600 transition"
                 onClick={() => navigate(item.link)}
               >
                 Administrar
