@@ -73,68 +73,89 @@ const datosEjemplo2 = {
 };
 
 const Visualizar = () => {
-  // Estado para seleccionar la cadena de datos
   const [datosSeleccionados, setDatosSeleccionados] = useState(datosEjemplo1);
 
-  // Simular cambio interno de datos
   useEffect(() => {
-    // Aquí se puede decidir cuál de los datos se selecciona automáticamente
-    setDatosSeleccionados(datosEjemplo2); // Cambia a datosEjemplo2 si quieres mostrar el segundo set
+    setDatosSeleccionados(datosEjemplo1); // Cambia a datosEjemplo2 si quieres mostrar el segundo set
   }, []);
 
   const { datosTecnico, datosPuntoMuestreo, parametros, metodoMonitoreo, cauce, medicionDirecta } = datosSeleccionados;
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg max-w-4xl mx-auto">
+    <div className="p-4 md:p-8 max-w-5xl mx-auto">
+      <h1 className="text-center text-3xl md:text-4xl font-bold text-green-800 mb-4 md:mb-8">
+        Visualizar Monitoreo
+      </h1>
+
       {/* Datos del Técnico */}
-      <section className="mb-6">
-        <h2 className="text-xl font-bold mb-2 border-b-2 border-gray-300 pb-1">Datos del Técnico</h2>
+      <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+        <h2 className="text-lg md:text-xl font-semibold mb-2">Datos del Técnico</h2>
         <div className="space-y-2">
           <p><strong>Nombre:</strong> {datosTecnico.nombre}</p>
         </div>
-      </section>
+      </div>
 
       {/* Datos del Punto de Muestreo */}
-      <section className="mb-6">
-        <h2 className="text-xl font-bold mb-2 border-b-2 border-gray-300 pb-1">Datos del Punto de Muestreo</h2>
-        <div className="space-y-2">
-          <p><strong>Comunidad:</strong> {datosPuntoMuestreo.comunidad}</p>
-          <p><strong>Paraje:</strong> {datosPuntoMuestreo.paraje}</p>
-          <p><strong>Uso:</strong> {datosPuntoMuestreo.uso}</p>
-          <p><strong>Coordenada X:</strong> {datosPuntoMuestreo.coordenadaX}</p>
-          <p><strong>Coordenada Y:</strong> {datosPuntoMuestreo.coordenadaY}</p>
+      <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+        <h2 className="text-lg md:text-xl font-semibold mb-2">Datos del Punto de Muestreo</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p><strong>Comunidad:</strong> {datosPuntoMuestreo.comunidad}</p>
+          </div>
+          <div>
+            <p><strong>Paraje:</strong> {datosPuntoMuestreo.paraje}</p>
+          </div>
+          <div className="md:hidden">
+            <p><strong>Uso:</strong> {datosPuntoMuestreo.uso}</p>
+          </div>
+          <div>
+            <p><strong>Coordenada X:</strong> {datosPuntoMuestreo.coordenadaX}</p>
+          </div>
+          <div>
+            <p><strong>Coordenada Y:</strong> {datosPuntoMuestreo.coordenadaY}</p>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Parámetros */}
-      <section className="mb-6">
-        <h2 className="text-xl font-bold mb-2 border-b-2 border-gray-300 pb-1">Parámetros</h2>
-        <div className="space-y-2">
-          <p><strong>pH:</strong> {parametros.pH}</p>
-          <p><strong>Temperatura del Agua:</strong> {parametros.temperaturaAgua}°C</p>
-          <p><strong>Temperatura del Aire:</strong> {parametros.temperaturaAire}°C</p>
-          <p><strong>Conductividad:</strong> {parametros.conductividad} µS/cm</p>
-          <p><strong>Sólidos Disueltos Totales:</strong> {parametros.solidosDisueltosTotales} mg/L</p>
+      <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+        <h2 className="text-lg md:text-xl font-semibold mb-2">Parámetros</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <p><strong>pH:</strong> {parametros.pH}</p>
+          </div>
+          <div>
+            <p><strong>Temperatura del Agua:</strong> {parametros.temperaturaAgua}°C</p>
+          </div>
+          <div>
+            <p><strong>Temperatura del Aire:</strong> {parametros.temperaturaAire}°C</p>
+          </div>
+          <div>
+            <p><strong>Conductividad:</strong> {parametros.conductividad} µS/cm</p>
+          </div>
+          <div>
+            <p><strong>Sólidos Disueltos Totales:</strong> {parametros.solidosDisueltosTotales} mg/L</p>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Método de Monitoreo */}
-      <section className="mb-6">
-        <h2 className="text-xl font-bold mb-2 border-b-2 border-gray-300 pb-1">Método de Monitoreo</h2>
+      <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+        <h2 className="text-lg md:text-xl font-semibold mb-2">Método de Monitoreo</h2>
         <p>{metodoMonitoreo}</p>
-      </section>
+      </div>
 
       {/* Información adicional basada en el método de monitoreo */}
       {metodoMonitoreo === 'seccion-velocidad' && cauce && (
-        <section className="mb-6">
-          <h2 className="text-xl font-bold mb-2 border-b-2 border-gray-300 pb-1">Cauce</h2>
+        <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+          <h2 className="text-lg md:text-xl font-semibold mb-2">Cauce</h2>
           <div className="space-y-2">
             <p><strong>Número de Secciones:</strong> {cauce.numeroSecciones}</p>
             <p><strong>Ancho Total del Cauce:</strong> {cauce.anchoTotalCauce} m</p>
             <p><strong>Observaciones:</strong> {cauce.observaciones}</p>
             <div className="space-y-4">
               {cauce.secciones.map((seccion, index) => (
-                <div key={index} className="border rounded-lg p-4 bg-gray-100">
+                <div key={index} className="border rounded-lg p-4 bg-gray-200">
                   <h3 className="font-semibold text-lg mb-2">Sección {index + 1}</h3>
                   <p><strong>Longitud Inicial:</strong> {seccion.longitudInicial} m</p>
                   <p><strong>Longitud Final:</strong> {seccion.longitudFinal} m</p>
@@ -145,12 +166,12 @@ const Visualizar = () => {
               ))}
             </div>
           </div>
-        </section>
+        </div>
       )}
 
       {metodoMonitoreo === 'medicion-directa' && medicionDirecta && (
-        <section className="mb-6">
-          <h2 className="text-xl font-bold mb-2 border-b-2 border-gray-300 pb-1">Medición Directa</h2>
+        <div className="mb-4 p-4 bg-gray-100 rounded-lg">
+          <h2 className="text-lg md:text-xl font-semibold mb-2">Medición Directa</h2>
           <div className="space-y-2">
             <p><strong>Ancho:</strong> {medicionDirecta.ancho} m</p>
             <p><strong>Largo:</strong> {medicionDirecta.largo} m</p>
@@ -159,7 +180,7 @@ const Visualizar = () => {
             <p><strong>Altura Contenido Agua:</strong> {medicionDirecta.alturaContenidoAgua} m</p>
             <p><strong>Porcentaje Contenido Agua:</strong> {medicionDirecta.porcentajeContenidoAgua}%</p>
           </div>
-        </section>
+        </div>
       )}
     </div>
   );
