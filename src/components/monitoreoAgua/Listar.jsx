@@ -112,12 +112,12 @@ const Listar = () => {
       <div className="flex justify-center items-center space-x-4 mt-4">
         <button onClick={prevPage} className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2">
           <FaArrowLeft className="w-6 h-6" />
-          <span>Anterior</span>
+          <span className="hidden sm:inline">Anterior</span>
         </button>
         <span>Página {currentPage} de {totalPages}</span>
         <button onClick={nextPage} className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2">
           <FaArrowRight className="w-6 h-6" />
-          <span>Siguiente</span>
+          <span className="hidden sm:inline">Siguiente</span>
         </button>
       </div>
     </div>
