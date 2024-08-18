@@ -19,14 +19,14 @@ import ListUsuario from './components/usuarios/Listar';
 import Comunidades from './components/comunidades/Comunidades';
 
 //Monitoreo de agua
-import Listar from './components/monitoreoAgua/Listar';
+import ListarMonitoreoAgua from './components/monitoreoAgua/ListarMonitoreoAgua';
 import Nuevo from './components/monitoreoAgua/Nuevo';
 import Visualizar from './components/monitoreoAgua/Visualizar';
 import Editar from './components/monitoreoAgua/Editar';
 import Eliminar from './components/monitoreoAgua/Eliminar';
 
 //Monitoreo de suelo
-import Suelo from './components/monitoreoSuelo/Listar';
+import ListarMonitoreoSuelo from './components/monitoreoSuelo/ListarMonitoreoSuelo'
 
 //Monitoreo de fauna
 import Fauna from './components/monitoreoFauna/Listar';
@@ -57,14 +57,14 @@ const App = () => {
             <Route path="/comunidades" element={<Comunidades />} />
             
             {/*Monitoreo de agua*/}
-            <Route path="/monitoreos/monitoreoagua/listar" element={<Listar />} />
+            <Route path="/monitoreos/monitoreoagua/listar" element={<ListarMonitoreoAgua />} />
             <Route path="/monitoreos/monitoreoagua/nuevo" element={<Nuevo />} />
             <Route path= "/monitoreos/monitoreoagua/visualizar" element={<Visualizar/>} />
             <Route path="/monitoreos/monitoreoagua/editar" element={<Editar/>}/>
             <Route path="/monitoreos/monitoreoagua/eliminar" element={<Eliminar/>}/>
 
             {/*Monitoreo de suelo*/}
-            <Route path="/monitoreos/suelo" element={<Suelo />} />
+            <Route path='/monitoreos/monitoreosuelo/listar' element={<ListarMonitoreoSuelo/>} />
 
             {/*Monitoreo de fauna*/}
             <Route path="/monitoreos/fauna" element={<Fauna />} />

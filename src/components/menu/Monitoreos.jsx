@@ -6,7 +6,7 @@ const Monitoreos = () => {
 
   const menuItems = [
     { icon: '/images/agua-icono.png', title: 'Monitoreo de Agua', description: 'Agrega, edita y visualiza los monitoreos de agua', link: '/monitoreos/monitoreoagua/listar', bgColor: 'bg-blue-100' },
-    { icon: '/images/suelo-icono.png', title: 'Monitoreo del Suelo', description: 'Agrega, edita y visualiza los monitoreos del suelo', link: '/monitoreos/suelo', bgColor: 'bg-green-100' },
+    { icon: '/images/suelo-icono.png', title: 'Monitoreo del Suelo', description: 'Agrega, edita y visualiza los monitoreos del suelo', link: '/monitoreos/monitoreosuelo/listar', bgColor: 'bg-green-100' },
     { icon: '/images/fauna-icono.png', title: 'Monitoreo de Fauna', description: 'Agrega, edita y visualiza los monitoreos de fauna', link: '/monitoreos/fauna', bgColor: 'bg-yellow-100' },
     { icon: '/images/reporte-icono.png', title: 'Generar Reportes', description: 'Genera reportes personalizados de los monitoreos', link: '/monitoreos/reportes', bgColor: 'bg-red-100' }
   ];
