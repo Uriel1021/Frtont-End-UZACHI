@@ -124,7 +124,7 @@ const NuevoMonitoreoAgua = () => {
   return (
     <div className="p-8">
       <h1 className="text-center text-4xl font-bold text-green-800 mb-8">
-        Nuevo Monitoreo Suelo
+        Nuevo Monitoreo Agua
       </h1>
       <Formik
         initialValues={initialValues}
