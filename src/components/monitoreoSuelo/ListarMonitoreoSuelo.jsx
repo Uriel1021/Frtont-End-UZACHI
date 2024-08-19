@@ -23,7 +23,7 @@ const ListarMonitoreoSuelo = () => {
       titulo="Monitoreo de Suelo" 
       columnas={columnas} 
       data={dataGround}
-      ruta = "/monitoreos/monitoreoagua/nuevo" 
+      ruta = "/monitoreos/monitoreosuelo/nuevo" 
     />
   );
 };
