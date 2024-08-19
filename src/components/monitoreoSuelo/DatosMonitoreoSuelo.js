@@ -1,0 +1,20 @@
+export const data = [
+  { id: 1, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 2, comunidad: 'Santiago Comaltepec', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 3, comunidad: 'Santiago Xiacui', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 4, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 5, comunidad: 'Santiago Comaltepec', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 6, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 7, comunidad: 'Santiago Xiacui', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 8, comunidad: 'Santiago Xiacui', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 9, comunidad: 'Santiago Comaltepec', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 10, comunidad: 'Santiago Comaltepec', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 11, comunidad: 'Santiago Comaltepec', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 12, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 13, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 14, comunidad: 'Santiago Xiacui', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 15, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 16, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 17, comunidad: 'Santiago comaltepec', paraje: 'La esperanza', fecha: '12-12-2023' },
+  { id: 18, comunidad: 'Capulalpam de Mendez', paraje: 'La esperanza', fecha: '12-12-2023' }
+];

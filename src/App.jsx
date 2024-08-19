@@ -16,18 +16,20 @@ import './index.css';
 import ListUsuario from './components/usuarios/Listar';
 
 //Comunidades
-import Comunidades from './components/comunidades/Comunidades';
+import ListarComunidades from './components/comunidades/ListarComunidades';
 
 //Monitoreo de agua
 import ListarMonitoreoAgua from './components/monitoreoAgua/ListarMonitoreoAgua';
-import Nuevo from './components/monitoreoAgua/Nuevo';
-import Visualizar from './components/monitoreoAgua/Visualizar';
-import Editar from './components/monitoreoAgua/Editar';
-import Eliminar from './components/monitoreoAgua/Eliminar';
-
+import NuevoMonitoreoAgua from './components/monitoreoAgua/NuevoMonitoreoAgua';
+import VisualizarMonitoreoAgua from './components/monitoreoAgua/VisualizarMonitoreoAgua';
+import EditarMonitoreoAgua from './components/monitoreoAgua/EditarMonitoreoAgua';
+import EliminarMonitoreoAgua from './components/monitoreoAgua/EliminarMonitoreoAgua';
 //Monitoreo de suelo
 import ListarMonitoreoSuelo from './components/monitoreoSuelo/ListarMonitoreoSuelo'
-
+//import NuevoMonitoreoSuelo from './components/monitoreoSuelo/NuevoMonitoreoSuelo'
+//import VisualizarMonitoreoSuelo from './components/monitoreoSuelo/VisualizarMonitoreoSuelo'
+//import EditarMonitoreoSuelo from './components/monitoreoSuelo/EditarMonitoreoSuelo'
+//import EliminarMonitoreoSuelo from './components/monitoreoSuelo/EliminarMonitoreoSuelo'
 //Monitoreo de fauna
 import Fauna from './components/monitoreoFauna/Listar';
 
@@ -54,14 +56,14 @@ const App = () => {
             <Route path="/usuarios/listar" element={<ListUsuario/>} />
             
             {/*Comunidades*/}
-            <Route path="/comunidades" element={<Comunidades />} />
-            
+            <Route path="/comunidades/listar" element={<ListarComunidades />} />
+
             {/*Monitoreo de agua*/}
             <Route path="/monitoreos/monitoreoagua/listar" element={<ListarMonitoreoAgua />} />
-            <Route path="/monitoreos/monitoreoagua/nuevo" element={<Nuevo />} />
-            <Route path= "/monitoreos/monitoreoagua/visualizar" element={<Visualizar/>} />
-            <Route path="/monitoreos/monitoreoagua/editar" element={<Editar/>}/>
-            <Route path="/monitoreos/monitoreoagua/eliminar" element={<Eliminar/>}/>
+            <Route path="/monitoreos/monitoreoagua/nuevo" element={<NuevoMonitoreoAgua />} />
+            <Route path= "/monitoreos/monitoreoagua/visualizar" element={<VisualizarMonitoreoAgua/>} />
+            <Route path="/monitoreos/monitoreoagua/editar" element={<EditarMonitoreoAgua/>}/>
+            <Route path="/monitoreos/monitoreoagua/eliminar" element={<EliminarMonitoreoAgua/>}/>
 
             {/*Monitoreo de suelo*/}
             <Route path='/monitoreos/monitoreosuelo/listar' element={<ListarMonitoreoSuelo/>} />
