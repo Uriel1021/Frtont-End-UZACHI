@@ -104,7 +104,7 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
     paginationDisplayMode: 'pages',
   });
 
-  const isSmallScreen = useMediaQuery('(max-width: 600px)');
+  const isSmallScreen = useMediaQuery('(max-width: 450px)');
   const isMediumScreen = useMediaQuery('(max-width: 768px)');
 
   const handleView = (id) => {
