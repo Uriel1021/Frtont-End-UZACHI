@@ -125,7 +125,7 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
   return (
     <Stack 
       sx={{ 
-        mt: '-3.0rem', // Subir la tabla 30%
+        mt: '-1.0rem', // Subir la tabla 30%
         px: { xs: '1rem', sm: '2rem', md: '4rem' },
         width: { xs: '100%', sm: '90%', md: '80%' },
       }}
