@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   MRT_GlobalFilterTextField,
   MRT_TableBodyCellValue,
@@ -18,34 +19,63 @@ import {
   TableRow,
   Typography,
   useMediaQuery,
+  Modal,
+  Backdrop,
+  Fade,
+  IconButton,
 } from '@mui/material';
 import { FaEye, FaEdit, FaTrash, FaPlusCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
-  
+const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
 
   const handleNuevoMonitoreo = () => {
     navigate(ruta);
   };
-  // Añadir la columna de acciones al final de las columnas
+
+  const handleDeleteOpen = (id) => {
+    setSelectedId(id);
+    setOpen(true);
+  };
+
+  const handleDeleteClose = () => {
+    setOpen(false);
+    setSelectedId(null);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (selectedId !== null) {
+      try {
+        await fetch(`${rutaEliminar}/${selectedId}`, { method: 'DELETE' });
+        // Opcionalmente, actualiza el estado para eliminar el registro de la tabla
+        console.log(`Elemento con ID ${selectedId} eliminado`);
+      } catch (error) {
+        console.error('Error al eliminar el elemento:', error);
+      } finally {
+        handleDeleteClose();
+      }
+    }
+  };
+
   const columnasConAcciones = [
     ...columnas,
     {
       accessorKey: 'acciones',
       header: 'Acciones',
       cell: ({ row }) => {
-        const id = row.original.id; // Obtener el ID de la fila
+        const id = row.original.id;
         const isSmallScreen = useMediaQuery('(max-width: 600px)');
         const isMediumScreen = useMediaQuery('(max-width: 820px)');
 
         return (
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: '0.5rem' }}>
-            <Button 
-              size={isSmallScreen ? 'small' : 'medium'} 
-              variant="outlined" 
-              color="info" 
+            <Button
+              size={isSmallScreen ? 'small' : 'medium'}
+              variant="outlined"
+              color="info"
               startIcon={<FaEye />}
               onClick={() => handleView(id)}
               sx={{
@@ -56,10 +86,10 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
             >
               {!(isSmallScreen || isMediumScreen) && 'Visualizar'}
             </Button>
-            <Button 
-              size={isSmallScreen ? 'small' : 'medium'} 
-              variant="outlined" 
-              color="primary" 
+            <Button
+              size={isSmallScreen ? 'small' : 'medium'}
+              variant="outlined"
+              color="primary"
               startIcon={<FaEdit />}
               onClick={() => handleEdit(id)}
               sx={{
@@ -70,12 +100,12 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
             >
               {!(isSmallScreen || isMediumScreen) && 'Editar'}
             </Button>
-            <Button 
-              size={isSmallScreen ? 'small' : 'medium'} 
-              variant="outlined" 
-              color="error" 
+            <Button
+              size={isSmallScreen ? 'small' : 'medium'}
+              variant="outlined"
+              color="error"
               startIcon={<FaTrash />}
-              onClick={() => handleDelete(id)}
+              onClick={() => handleDeleteOpen(id)}
               sx={{
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
@@ -117,39 +147,34 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
     console.log(`Editar el elemento con ID: ${id}`);
   };
 
-  const handleDelete = (id) => {
-    // Lógica para manejar la eliminación del elemento con el ID dado
-    console.log(`Eliminar el elemento con ID: ${id}`);
-  };
-
   return (
-    <Stack 
-      sx={{ 
+    <Stack
+      sx={{
         mt: '-1.0rem', // Subir la tabla 30%
         px: { xs: '1rem', sm: '2rem', md: '4rem' },
         width: { xs: '100%', sm: '90%', md: '80%' },
       }}
     >
-    <Box 
-        sx={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
           alignItems: 'center',
           flexDirection: { xs: 'column', sm: 'row' },
         }}
       >
-        <Typography 
-          variant="h4" 
-          sx={{ 
+        <Typography
+          variant="h4"
+          sx={{
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-            color:'green',
+            color: 'green',
           }}
         >
           {titulo}
         </Typography>
         <Box sx={{ mt: { xs: '0', sm: '0' }, ml: 'auto' }}>
-          <button 
-            onClick={handleNuevoMonitoreo} 
+          <button
+            onClick={handleNuevoMonitoreo}
             className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2"
             style={{ marginTop: '10px', marginBottom: '20px' }} // Padding de 10px arriba y abajo
           >
@@ -158,7 +183,7 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
           </button>
         </Box>
       </Box>
-      
+
       <Box
         sx={{
           display: 'flex',
@@ -177,17 +202,17 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header, index) => (
-                  <TableCell 
-                    align="center" 
-                    variant="head" 
+                  <TableCell
+                    align="center"
+                    variant="head"
                     key={header.id}
                     sx={{
-                      display: 
-                        (isSmallScreen || isMediumScreen) && 
+                      display:
+                        (isSmallScreen || isMediumScreen) &&
                         header.column.columnDef.hideOnSmallScreen &&
                         index !== headerGroup.headers.length - 1 // Ocultar solo si no es el último campo
-                        ? 'none' 
-                        : 'table-cell',
+                          ? 'none'
+                          : 'table-cell',
                       fontSize: { xs: '0.75rem', sm: '1rem' },
                       padding: { xs: '4px', sm: '8px' },
                       backgroundColor: 'green', // Color verde para el encabezado
@@ -209,24 +234,26 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
             {table.getRowModel().rows.map((row, rowIndex) => (
               <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell, index) => (
-                  <TableCell 
-                    align="center" 
-                    variant="body" 
+                  <TableCell
+                    align="center"
+                    variant="body"
                     key={cell.id}
                     sx={{
-                      display: 
-                        (isSmallScreen || isMediumScreen) && 
+                      display:
+                        (isSmallScreen || isMediumScreen) &&
                         cell.column.columnDef.hideOnSmallScreen &&
                         index !== row.getVisibleCells().length - 1 // Ocultar solo si no es el último campo
-                        ? 'none' 
-                        : 'table-cell',
+                          ? 'none'
+                          : 'table-cell',
                       fontSize: { xs: '0.75rem', sm: '1rem' },
                       padding: { xs: '4px', sm: '8px' },
-                      backgroundColor: rowIndex % 2 === 0 ? '#f5f5f5' : 'white', // Alternar entre gris y blanco para el contenido
-                      color: 'black', // Texto en negro para el contenido
                     }}
                   >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    {cell.column.columnDef.cell ? (
+                      flexRender(cell.column.columnDef.cell, cell.getContext())
+                    ) : (
+                      <MRT_TableBodyCellValue cell={cell} />
+                    )}
                   </TableCell>
                 ))}
               </TableRow>
@@ -234,7 +261,42 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <MRT_ToolbarAlertBanner stackAlertBanner table={table} />
+      <MRT_ToolbarAlertBanner table={table} />
+      <Modal
+        open={open}
+        onClose={handleDeleteClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{ timeout: 500 }}
+      >
+        <Fade in={open}>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: { xs: '90%', sm: '400px' },
+              bgcolor: 'background.paper',
+              border: '2px solid #000',
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <Typography variant="h6" gutterBottom>
+              ¿Estás seguro de que quieres eliminar este elemento?
+            </Typography>
+            <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: 'center' }}>
+              <Button variant="outlined" color="error" onClick={handleConfirmDelete}>
+                Confirmar
+              </Button>
+              <Button variant="outlined" onClick={handleDeleteClose}>
+                Cancelar
+              </Button>
+            </Stack>
+          </Box>
+        </Fade>
+      </Modal>
     </Stack>
   );
 };
