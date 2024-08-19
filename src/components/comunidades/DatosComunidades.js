@@ -1,0 +1,17 @@
+export const data = [
+    { id: 1, nombre: 'San Juan Bosco', paraje: 'El Bosque', ubicacion: { utmX: 123456, utmY: 789012 }, fechaRegistro: '2024-01-15' },
+    { id: 2, nombre: 'Santa María Yavesía', paraje: 'La Cascada', ubicacion: { utmX: 223344, utmY: 556677 }, fechaRegistro: '2024-02-20' },
+    { id: 3, nombre: 'San Miguel Tiltepec', paraje: 'El Mirador', ubicacion: { utmX: 334455, utmY: 667788 }, fechaRegistro: '2024-03-18' },
+    { id: 4, nombre: 'San Andrés Solaga', paraje: 'La Loma', ubicacion: { utmX: 445566, utmY: 778899 }, fechaRegistro: '2024-04-25' },
+    { id: 5, nombre: 'Santa Catarina Lachatao', paraje: 'El Rincón', ubicacion: { utmX: 556677, utmY: 889900 }, fechaRegistro: '2024-05-10' },
+    { id: 6, nombre: 'Santiago Comaltepec', paraje: 'Las Palmas', ubicacion: { utmX: 667788, utmY: 990011 }, fechaRegistro: '2024-06-12' },
+    { id: 7, nombre: 'San Juan Yagila', paraje: 'La Cañada', ubicacion: { utmX: 778899, utmY: 101122 }, fechaRegistro: '2024-07-08' },
+    { id: 8, nombre: 'San Baltazar Loxicha', paraje: 'El Encino', ubicacion: { utmX: 889900, utmY: 112233 }, fechaRegistro: '2024-08-03' },
+    { id: 9, nombre: 'San Pablo Guelatao', paraje: 'La Nopalera', ubicacion: { utmX: 990011, utmY: 123344 }, fechaRegistro: '2024-09-14' },
+    { id: 10, nombre: 'Santa María Tlahuitoltepec', paraje: 'El Pino', ubicacion: { utmX: 101122, utmY: 134455 }, fechaRegistro: '2024-10-22' },
+    { id: 11, nombre: 'Santiago Apoala', paraje: 'El Cerrito', ubicacion: { utmX: 112233, utmY: 145566 }, fechaRegistro: '2024-11-05' },
+    { id: 12, nombre: 'San Pedro Cajonos', paraje: 'El Llano', ubicacion: { utmX: 123344, utmY: 156677 }, fechaRegistro: '2024-12-01' },
+    { id: 13, nombre: 'Santiago Xiacui', paraje: 'La Vega', ubicacion: { utmX: 134455, utmY: 167788 }, fechaRegistro: '2024-12-15' },
+    { id: 14, nombre: 'San Mateo Peñasco', paraje: 'El Monte', ubicacion: { utmX: 145566, utmY: 178899 }, fechaRegistro: '2024-12-20' },
+    { id: 15, nombre: 'San Sebastián Teitipac', paraje: 'La Laguna', ubicacion: { utmX: 156677, utmY: 189900 }, fechaRegistro: '2024-12-25' },
+];
