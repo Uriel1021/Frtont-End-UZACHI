@@ -23,6 +23,7 @@ const columnas = [
   {
     accessorKey: 'fechaRegistro',
     header: 'Fecha de Registro',
+    hideOnSmallScreen: true, // Ocultar en pantallas pequeñas
   },
 ];
 
