@@ -26,7 +26,7 @@ import EditarMonitoreoAgua from './components/monitoreoAgua/EditarMonitoreoAgua'
 import EliminarMonitoreoAgua from './components/monitoreoAgua/EliminarMonitoreoAgua';
 //Monitoreo de suelo
 import ListarMonitoreoSuelo from './components/monitoreoSuelo/ListarMonitoreoSuelo'
-//import NuevoMonitoreoSuelo from './components/monitoreoSuelo/NuevoMonitoreoSuelo'
+import NuevoMonitoreoSuelo from './components/monitoreoSuelo/NuevoMonitoreoSuelo';
 //import VisualizarMonitoreoSuelo from './components/monitoreoSuelo/VisualizarMonitoreoSuelo'
 //import EditarMonitoreoSuelo from './components/monitoreoSuelo/EditarMonitoreoSuelo'
 //import EliminarMonitoreoSuelo from './components/monitoreoSuelo/EliminarMonitoreoSuelo'
@@ -35,6 +35,7 @@ import Fauna from './components/monitoreoFauna/Listar';
 
 //Reportes
 import Reportes from './components/reportes/Reportes';
+
 
 
 
@@ -67,6 +68,8 @@ const App = () => {
 
             {/*Monitoreo de suelo*/}
             <Route path='/monitoreos/monitoreosuelo/listar' element={<ListarMonitoreoSuelo/>} />
+            <Route path='/monitoreos/monitoreosuelo/nuevo' element={<NuevoMonitoreoSuelo/>} />
+
 
             {/*Monitoreo de fauna*/}
             <Route path="/monitoreos/fauna" element={<Fauna />} />
