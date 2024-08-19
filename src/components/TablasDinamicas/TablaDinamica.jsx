@@ -104,7 +104,7 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
     paginationDisplayMode: 'pages',
   });
 
-  const isSmallScreen = useMediaQuery('(max-width: 450px)');
+  const isSmallScreen = useMediaQuery('(max-width: 600px)');
   const isMediumScreen = useMediaQuery('(max-width: 768px)');
 
   const handleView = (id) => {
@@ -125,7 +125,7 @@ const TablaDinamica = ({ titulo, columnas, data, ruta }) => {
   return (
     <Stack 
       sx={{ 
-        mt: '-7.0rem', // Subir la tabla 30%
+        mt: '-3.0rem', // Subir la tabla 30%
         px: { xs: '1rem', sm: '2rem', md: '4rem' },
         width: { xs: '100%', sm: '90%', md: '80%' },
       }}
