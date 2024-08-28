@@ -1,4 +1,4 @@
-import TablaDinamica from '../TablasDinamicas/TablaDinamica';
+import TablaDinamicaMonitoreo from '../TablasDinamicas/TablaDinamicaMonitoreos/TablaDinamicaMonitoreo';
 import { data as dataGround } from './DatosMonitoreoSuelo' 
 
 const columnas = [
@@ -19,11 +19,12 @@ const columnas = [
 
 const ListarMonitoreoSuelo = () => {
   return (
-    <TablaDinamica
+    <TablaDinamicaMonitoreo
       titulo="Monitoreo de Suelo" 
       columnas={columnas} 
       data={dataGround}
       ruta = "/monitoreos/monitoreosuelo/nuevo" 
+      rutaLaboratorio= "/monitoreos/monitoreosuelo/laboratorio"
     />
   );
 };

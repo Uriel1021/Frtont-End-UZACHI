@@ -1,4 +1,4 @@
-import TablaDinamica from '../TablasDinamicas/TablaDinamica';
+import TablaDinamicaMonitoreo from '../TablasDinamicas/TablaDinamica/TablaDinamica';
 import { data as makeData } from './DatosUsuarios';
 
 const columnas = [

@@ -23,13 +23,13 @@ import ListarMonitoreoAgua from './components/monitoreoAgua/ListarMonitoreoAgua'
 import NuevoMonitoreoAgua from './components/monitoreoAgua/NuevoMonitoreoAgua';
 import VisualizarMonitoreoAgua from './components/monitoreoAgua/VisualizarMonitoreoAgua';
 import EditarMonitoreoAgua from './components/monitoreoAgua/EditarMonitoreoAgua';
-import EliminarMonitoreoAgua from './components/monitoreoAgua/EliminarMonitoreoAgua';
+import LaboratorioMonitoreoAgua from './components/monitoreoAgua/LaboratorioMonitoreoAgua';
 //Monitoreo de suelo
 import ListarMonitoreoSuelo from './components/monitoreoSuelo/ListarMonitoreoSuelo'
 import NuevoMonitoreoSuelo from './components/monitoreoSuelo/NuevoMonitoreoSuelo';
 //import VisualizarMonitoreoSuelo from './components/monitoreoSuelo/VisualizarMonitoreoSuelo'
 //import EditarMonitoreoSuelo from './components/monitoreoSuelo/EditarMonitoreoSuelo'
-//import EliminarMonitoreoSuelo from './components/monitoreoSuelo/EliminarMonitoreoSuelo'
+import LaboratorioMonitoreoSuelo from './components/monitoreoSuelo/LaboratorioMonitoreoSuelo';
 //Monitoreo de fauna
 import Fauna from './components/monitoreoFauna/Listar';
 
@@ -64,11 +64,12 @@ const App = () => {
             <Route path="/monitoreos/monitoreoagua/nuevo" element={<NuevoMonitoreoAgua />} />
             <Route path= "/monitoreos/monitoreoagua/visualizar" element={<VisualizarMonitoreoAgua/>} />
             <Route path="/monitoreos/monitoreoagua/editar" element={<EditarMonitoreoAgua/>}/>
-            <Route path="/monitoreos/monitoreoagua/eliminar" element={<EliminarMonitoreoAgua/>}/>
+            <Route path="/monitoreos/monitoreoagua/laboratorio" element={<LaboratorioMonitoreoAgua/>}/>
 
             {/*Monitoreo de suelo*/}
             <Route path='/monitoreos/monitoreosuelo/listar' element={<ListarMonitoreoSuelo/>} />
             <Route path='/monitoreos/monitoreosuelo/nuevo' element={<NuevoMonitoreoSuelo/>} />
+            <Route path='/monitoreos/monitoreosuelo/laboratorio' element={<LaboratorioMonitoreoSuelo/>} />
 
 
             {/*Monitoreo de fauna*/}
