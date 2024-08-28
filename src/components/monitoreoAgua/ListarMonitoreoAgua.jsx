@@ -1,4 +1,4 @@
-import TablaDinamica from '../TablasDinamicas/TablaDinamica';
+import TablaDinamicaMonitoreo from '../TablasDinamicas/TablaDinamicaMonitoreos/TablaDinamicaMonitoreo';
 import { data as dataWater } from './DatosMonitoreoAgua';
 
 const columnas = [
@@ -24,11 +24,12 @@ const columnas = [
 
 const ListarMonitoreoAgua = () => {
   return (
-    <TablaDinamica
+    <TablaDinamicaMonitoreo
       titulo="Monitoreo de Agua" 
       columnas={columnas} 
       data={dataWater}
-      ruta = "/monitoreos/monitoreoagua/nuevo" 
+      ruta = "/monitoreos/monitoreoagua/nuevo"
+      rutaLaboratorio = "/monitoreos/monitoreoagua/laboratorio" 
     />
   );
 };

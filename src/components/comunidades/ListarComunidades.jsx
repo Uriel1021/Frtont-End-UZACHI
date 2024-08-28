@@ -1,4 +1,5 @@
-import TablaDinamica from '../TablasDinamicas/TablaDinamica';
+import TablaDinamica from '../TablasDinamicas/TablaDinamica/TablaDinamica';
+
 import { data as dataGround } from './DatosComunidades'
 
 const columnas = [
