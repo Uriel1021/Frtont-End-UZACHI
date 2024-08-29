@@ -137,10 +137,17 @@ const NuevoMonitoreoAgua = () => {
               <Typography variant="h6" gutterBottom>
                 Datos del Técnico
               </Typography>
-
+              <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", lg: "repeat(4, 1fr)" },
+                gap: 2,
+              }}
+              >
               <Field
                 as={TextField}
                 fullWidth
+                select
                 id="datosTecnico.nombre"
                 name="datosTecnico.nombre"
                 label="Nombre"
@@ -154,13 +161,25 @@ const NuevoMonitoreoAgua = () => {
                   touched.datosTecnico?.nombre && errors.datosTecnico?.nombre
                 }
                 sx={{ mb: 2 }}
-              />
+              >
+                {/* Opciones del select */}
+                <MenuItem value="tecnico1">Técnico 1</MenuItem>
+                <MenuItem value="tecnico2">Técnico 2</MenuItem>
+              </Field>
+              </Box>
             </Box>
 
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom>
                 Datos del Punto de Muestreo
               </Typography>
+              <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", lg: "repeat(4, 1fr)" },
+                gap: 2,
+              }}
+              >
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>Comunidad</InputLabel>
                 <Field
@@ -237,12 +256,20 @@ const NuevoMonitoreoAgua = () => {
                 }
                 sx={{ mb: 2 }}
               />
+              </Box>
             </Box>
 
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom>
                 Parámetros
               </Typography>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", lg: "repeat(5, 1fr)" },
+                  gap: 2,
+                }}
+              >
               <Field
                 as={TextField}
                 fullWidth
@@ -332,13 +359,21 @@ const NuevoMonitoreoAgua = () => {
                 }
                 sx={{ mb: 2 }}
               />
+              </Box>
             </Box>
 
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom>
                 Método de Monitoreo
               </Typography>
-              <FormControl fullWidth sx={{ mb: 2 }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", lg: "repeat(2, 1fr)" },
+                  gap: 2,
+                }}
+              >
+                  <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>Método de Monitoreo</InputLabel>
                 <Field
                   as={Select}
@@ -357,6 +392,7 @@ const NuevoMonitoreoAgua = () => {
                   <MenuItem value="medicionDirecta">Medición Directa</MenuItem>
                 </Field>
               </FormControl>
+                </Box>
             </Box>
 
             {metodoSeleccionado === "seccionVelocidad" && (
@@ -364,6 +400,13 @@ const NuevoMonitoreoAgua = () => {
                 <Typography variant="h6" gutterBottom>
                   Sección Velocidad
                 </Typography>
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", lg: "repeat(8, 1fr)" },
+                    gap: 2,
+                  }}
+                >
                 <FieldArray name="seccionVelocidad.cauces">
                   {({ push, remove }) => (
                     <>
@@ -529,6 +572,14 @@ const NuevoMonitoreoAgua = () => {
                     </>
                   )}
                 </FieldArray>
+                </Box>
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", lg: "repeat(4, 1fr)" },
+                    gap: 2,
+                  }}
+                >
                 <Field
                   as={TextField}
                   fullWidth
@@ -586,6 +637,7 @@ const NuevoMonitoreoAgua = () => {
                   }
                   sx={{ mb: 2 }}
                 />
+                </Box>
               </Box>
             )}
 
@@ -594,7 +646,14 @@ const NuevoMonitoreoAgua = () => {
                 <Typography variant="h6" gutterBottom>
                   Medición Directa
                 </Typography>
-                <Field
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", lg: "repeat(5, 1fr)" },
+                    gap: 2,
+                  }}
+                >
+                  <Field
                   as={TextField}
                   fullWidth
                   id="medicionDirecta.ancho"
@@ -708,6 +767,7 @@ const NuevoMonitoreoAgua = () => {
                   }
                   sx={{ mb: 2 }}
                 />
+                </Box>
               </Box>
             )}
             <div

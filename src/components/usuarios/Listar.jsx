@@ -1,4 +1,4 @@
-import TablaDinamicaMonitoreo from '../TablasDinamicas/TablaDinamica/TablaDinamica';
+import TablaDinamica from '../TablasDinamicas/TablaDinamica/TablaDinamica';
 import { data as makeData } from './DatosUsuarios';
 
 const columnas = [
@@ -34,6 +34,7 @@ const Listar = () => {
       titulo="Usuarios" 
       columnas={columnas} 
       data={makeData} 
+      ruta = "/usuarios/nuevo"
     />
   );
 };

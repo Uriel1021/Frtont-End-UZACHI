@@ -1,43 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-//Componentes estaticos
+import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Header from './components/header/Header';
-
-// Principales
-import Login from './components/login/Login';
-import Menu from './components/menu/Menu';
-import Monitoreos from './components/menu/Monitoreos';
-import PreguntasFrecuentes from './components/preguntasFrecuentes/PreguntasFrecuentes';
 import Footer from './components/footer/Footer';
+import AppRoutes from './routes';
 import './index.css';
-
-//Usuarios
-import ListUsuario from './components/usuarios/Listar';
-
-//Comunidades
-import ListarComunidades from './components/comunidades/ListarComunidades';
-
-//Monitoreo de agua
-import ListarMonitoreoAgua from './components/monitoreoAgua/ListarMonitoreoAgua';
-import NuevoMonitoreoAgua from './components/monitoreoAgua/NuevoMonitoreoAgua';
-import VisualizarMonitoreoAgua from './components/monitoreoAgua/VisualizarMonitoreoAgua';
-import EditarMonitoreoAgua from './components/monitoreoAgua/EditarMonitoreoAgua';
-import LaboratorioMonitoreoAgua from './components/monitoreoAgua/LaboratorioMonitoreoAgua';
-//Monitoreo de suelo
-import ListarMonitoreoSuelo from './components/monitoreoSuelo/ListarMonitoreoSuelo'
-import NuevoMonitoreoSuelo from './components/monitoreoSuelo/NuevoMonitoreoSuelo';
-//import VisualizarMonitoreoSuelo from './components/monitoreoSuelo/VisualizarMonitoreoSuelo'
-//import EditarMonitoreoSuelo from './components/monitoreoSuelo/EditarMonitoreoSuelo'
-import LaboratorioMonitoreoSuelo from './components/monitoreoSuelo/LaboratorioMonitoreoSuelo';
-//Monitoreo de fauna
-import Fauna from './components/monitoreoFauna/Listar';
-
-//Reportes
-import Reportes from './components/reportes/Reportes';
-
-
-
 
 const App = () => {
   return (
@@ -46,39 +13,7 @@ const App = () => {
         <Header />
         <Navbar />
         <div className="flex justify-center items-center min-h-screen bg-white">
-          <Routes>
-            {/*Principales*/}
-            <Route path="/" element={<Login />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/monitoreos" element={<Monitoreos />} />
-            <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
-
-            {/*Usuarios*/}
-            <Route path="/usuarios/listar" element={<ListUsuario/>} />
-            
-            {/*Comunidades*/}
-            <Route path="/comunidades/listar" element={<ListarComunidades />} />
-
-            {/*Monitoreo de agua*/}
-            <Route path="/monitoreos/monitoreoagua/listar" element={<ListarMonitoreoAgua />} />
-            <Route path="/monitoreos/monitoreoagua/nuevo" element={<NuevoMonitoreoAgua />} />
-            <Route path= "/monitoreos/monitoreoagua/visualizar" element={<VisualizarMonitoreoAgua/>} />
-            <Route path="/monitoreos/monitoreoagua/editar" element={<EditarMonitoreoAgua/>}/>
-            <Route path="/monitoreos/monitoreoagua/laboratorio" element={<LaboratorioMonitoreoAgua/>}/>
-
-            {/*Monitoreo de suelo*/}
-            <Route path='/monitoreos/monitoreosuelo/listar' element={<ListarMonitoreoSuelo/>} />
-            <Route path='/monitoreos/monitoreosuelo/nuevo' element={<NuevoMonitoreoSuelo/>} />
-            <Route path='/monitoreos/monitoreosuelo/laboratorio' element={<LaboratorioMonitoreoSuelo/>} />
-
-
-            {/*Monitoreo de fauna*/}
-            <Route path="/monitoreos/fauna" element={<Fauna />} />
-
-            {/*Reportes*/}
-            <Route path="/monitoreos/reportes" element={<Reportes />} />
-
-          </Routes>
+          <AppRoutes />
         </div>
         <Footer />
       </div>

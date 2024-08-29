@@ -73,6 +73,13 @@ const NuevoMonitoreoSuelo = () => {
               <Typography variant="h6" gutterBottom>
                 Datos del Técnico
               </Typography>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", lg: "repeat(2, 1fr)" },
+                  gap: 2,
+                }}
+              >
               <Field
                 as={TextField}
                 fullWidth
@@ -92,11 +99,19 @@ const NuevoMonitoreoSuelo = () => {
                 <MenuItem value="tecnico2">Técnico 2</MenuItem>
               </Field>
             </Box>
+              </Box>
 
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom>
                 Datos del Punto de Muestreo
               </Typography>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", lg: "repeat(5, 1fr)" },
+                  gap: 2,
+                }}
+              >
               <Field
                 as={TextField}
                 fullWidth
@@ -190,12 +205,20 @@ const NuevoMonitoreoSuelo = () => {
                 helperText={touched.datosPuntoMuestreo?.numeroSitios && errors.datosPuntoMuestreo?.numeroSitios}
                 sx={{ mb: 2 }}
               />
+              </Box>
             </Box>
 
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom>
                 Parámetros
               </Typography>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", lg: "repeat(5, 1fr)" },
+                  gap: 2,
+                }}
+              >
               <Field
                 as={TextField}
                 fullWidth
@@ -248,6 +271,7 @@ const NuevoMonitoreoSuelo = () => {
                 helperText={touched.parametros?.estrato && errors.parametros?.estrato}
                 sx={{ mb: 2 }}
               />
+              </Box>
             </Box>
 
             <Box sx={{ mb: 4 }}>

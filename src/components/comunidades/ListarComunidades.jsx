@@ -34,7 +34,7 @@ const ListarComunidades = () => {
       titulo="Lista de Comunidades" 
       columnas={columnas} 
       data={dataGround}
-      ruta = "/monitoreos/monitoreoagua/nuevo" 
+      ruta = "/comunidades/nuevo"
     />
   );
 };
