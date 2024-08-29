@@ -29,7 +29,7 @@ const ListarMonitoreoAgua = () => {
       columnas={columnas} 
       data={dataWater}
       ruta = "/monitoreos/monitoreoagua/nuevo"
-      rutaLaboratorio = "/monitoreos/monitoreoagua/laboratorio" 
+      rutaLaboratorio = "/monitoreos/monitoreoagua/nuevolaboratorio" 
     />
   );
 };

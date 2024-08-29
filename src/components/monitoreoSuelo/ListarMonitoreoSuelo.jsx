@@ -24,7 +24,7 @@ const ListarMonitoreoSuelo = () => {
       columnas={columnas} 
       data={dataGround}
       ruta = "/monitoreos/monitoreosuelo/nuevo" 
-      rutaLaboratorio= "/monitoreos/monitoreosuelo/laboratorio"
+      rutaLaboratorio= "/monitoreos/monitoreosuelo/nuevolaboratorio"
     />
   );
 };
