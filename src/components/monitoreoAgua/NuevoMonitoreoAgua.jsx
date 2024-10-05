@@ -403,7 +403,7 @@ const NuevoMonitoreoAgua = () => {
                 <Box
                   sx={{
                     display: "grid",
-                    gridTemplateColumns: { xs: "1fr", lg: "repeat(8, 1fr)" },
+                    gridTemplateColumns: { xs: "1fr", lg: "repeat(6, 1fr)" },
                     gap: 2,
                   }}
                 >
@@ -413,7 +413,7 @@ const NuevoMonitoreoAgua = () => {
                       {values.seccionVelocidad.cauces.map((_, index) => (
                         <Box key={index} sx={{ mb: 4 }}>
                           <Typography variant="subtitle1" gutterBottom>
-                            Cauce {index + 1}
+                            Seccion {index + 1}
                           </Typography>
                           <Field
                             as={TextField}
@@ -567,7 +567,7 @@ const NuevoMonitoreoAgua = () => {
                         startIcon={<AddCircleOutlineIcon />}
                         sx={{ mb: 2 }}
                       >
-                        Añadir Cauce
+                        Añadir Seccion
                       </Button>
                     </>
                   )}
@@ -715,7 +715,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.volumenParcial"
                   name="medicionDirecta.volumenParcial"
-                  label="Volumen Parcial"
+                  label="Volumen Total"
                   value={values.medicionDirecta.volumenParcial}
                   onChange={handleChange}
                   onBlur={handleBlur}
