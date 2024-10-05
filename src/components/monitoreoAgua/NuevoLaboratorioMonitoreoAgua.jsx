@@ -172,7 +172,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.ph"
                   name="datosfisicoquimico.ph"
-                  label="Ph"
+                  label="pH"
                   value={values.datosfisicoquimico.ph}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -311,25 +311,6 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   helperText={
                     touched.datosbacteriologicos?.coliformesfecales &&
                     errors.datosbacteriologicos?.coliformesfecales
-                  }
-                  sx={{ mb: 2 }}
-                />
-                <Field
-                  as={TextField}
-                  fullWidth
-                  id="datosbacteriologicos.flujovolumetrico"
-                  name="datosbacteriologicos.flujovolumetrico"
-                  label="Flujo Volumetrico"
-                  value={values.datosbacteriologicos.flujovolumetrico}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  error={Boolean(
-                    touched.datosbacteriologicos?.flujovolumetrico &&
-                    errors.datosbacteriologicos?.flujovolumetrico
-                  )}
-                  helperText={
-                    touched.datosbacteriologicos?.flujovolumetrico &&
-                    errors.datosbacteriologicos?.flujovolumetrico
                   }
                   sx={{ mb: 2 }}
                 />
