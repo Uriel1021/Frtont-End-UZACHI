@@ -82,6 +82,8 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
             >
               {!(isSmallScreen || isMediumScreen) && 'Visualizar'}
@@ -96,6 +98,8 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
             >
               {!(isSmallScreen || isMediumScreen) && 'Editar'}
@@ -110,6 +114,8 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
             >
               {!(isSmallScreen || isMediumScreen) && 'Eliminar'}

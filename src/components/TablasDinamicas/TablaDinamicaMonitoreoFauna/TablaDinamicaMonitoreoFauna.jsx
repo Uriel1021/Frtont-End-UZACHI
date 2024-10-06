@@ -75,7 +75,7 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
         const isMediumScreen = useMediaQuery('(max-width: 820px)');
 
         return (
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '0.5rem' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '1.0rem' }}>
             <Button
               size={isSmallScreen ? 'small' : 'medium'}
               variant="outlined"
@@ -84,12 +84,15 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
               onClick={() => handleAddImg(id)}
               sx={{
                 minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
+                padding: isSmallScreen ? '1px' : '6px 13px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
-            >
+              >
               {!(isSmallScreen || isMediumScreen) && 'Agregar Imágenes'}
             </Button>
+
             <Button
               size={isSmallScreen ? 'small' : 'medium'}
               variant="outlined"
@@ -100,6 +103,8 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
             >
               {!(isSmallScreen || isMediumScreen) && 'Visualizar'}
@@ -114,6 +119,8 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
             >
               {!(isSmallScreen || isMediumScreen) && 'Editar'}
@@ -128,6 +135,8 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
                 minWidth: isSmallScreen ? 'auto' : 'initial',
                 padding: isSmallScreen ? '2px' : '6px 16px',
                 fontSize: isSmallScreen ? '12px' : 'inherit',
+                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
+                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
               }}
             >
               {!(isSmallScreen || isMediumScreen) && 'Eliminar'}
