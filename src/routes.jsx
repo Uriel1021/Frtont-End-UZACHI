@@ -22,12 +22,15 @@ import ListarMonitoreoSuelo from './components/monitoreoSuelo/ListarMonitoreoSue
 import NuevoMonitoreoSuelo from './components/monitoreoSuelo/NuevoMonitoreoSuelo';
 import LaboratorioMonitoreoSuelo from './components/monitoreoSuelo/LaboratorioMonitoreoSuelo';
 //Monitoreo de fauna
-import Fauna from './components/monitoreoFauna/Listar';
+import ListarMonitoreoFauna from './components/monitoreoFauna/ListarMonitoreoFauna';
+import VisualizarMonitoreoFauna from './components/monitoreoFauna/VisualizarMonitoreoFauna';
+import NuevoMonitoreoFauna from './components/monitoreoFauna/NuevoMonitoreoFauna';
 //Reportes
 import Reportes from './components/reportes/Reportes';
 import NuevoLaboratorioMonitoreoSuelo from './components/monitoreoSuelo/NuevoLaboratorioMonitoreoSuelo';
 import NuevoUsuario from './components/usuarios/NuevoUsuario';
 import NuevaComunidad from './components/comunidades/NuevaComunidad';
+import AgregarImagenesMonitoreoFauna from './components/monitoreoFauna/AgregarImagenesMonitoreoFauna';
 
 const AppRoutes = () => {
   return (
@@ -58,7 +61,10 @@ const AppRoutes = () => {
       <Route path="/monitoreos/monitoreosuelo/laboratorio" element={<LaboratorioMonitoreoSuelo />} />
       <Route path="/monitoreos/monitoreosuelo/nuevolaboratorio" element={<NuevoLaboratorioMonitoreoSuelo/>} />
       {/* Monitoreo de fauna */}
-      <Route path="/monitoreos/fauna" element={<Fauna />} />
+      <Route path="/monitoreos/monitoreofauna/listar" element={<ListarMonitoreoFauna />} />
+      <Route path='/monitoreos/monitoreofauna/visualizar' element={<VisualizarMonitoreoFauna/>}/>
+      <Route path='/monitoreos/monitoreofauna/nuevo' element={<NuevoMonitoreoFauna/>}/>
+      <Route path='/monitoreos/monitoreofauna/agregarimagenes' element={<AgregarImagenesMonitoreoFauna/>}/>
       {/* Reportes */}
       <Route path="/monitoreos/reportes" element={<Reportes />} />
     </Routes>

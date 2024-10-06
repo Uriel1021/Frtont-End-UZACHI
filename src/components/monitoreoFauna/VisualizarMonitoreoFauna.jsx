@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Listar = () => {
+const Visualizar = () => {
   const allData = [
     '/testMoniringImages/imagen1.jpg', '/testMoniringImages/imagen2.jpg', '/testMoniringImages/imagen3.jpg', '/testMoniringImages/imagen4.jpg', '/testMoniringImages/imagen5.jpg', '/testMoniringImages/imagen6.jpg', '/testMoniringImages/imagen7.jpg',
     '/testMoniringImages/imagen8.jpg', '/testMoniringImages/imagen9.jpeg', '/testMoniringImages/imagen10.jpeg', '/testMoniringImages/imagen11.jpeg', '/testMoniringImages/imagen12.jpeg', '/testMoniringImages/imagen13.jpeg', '/testMoniringImages/imagen14.jpeg',
@@ -9,13 +9,11 @@ const Listar = () => {
     '/testMoniringImages/imagen29.jpg', '/testMoniringImages/imagen30.jpg', '/testMoniringImages/imagen31.jpg', '/testMoniringImages/imagen32.jpg', '/testMoniringImages/imagen33.jpg', '/testMoniringImages/imagen34.jpg', '/testMoniringImages/imagen35.jpeg'
   ];
 
-  // Definir el número de imágenes por página según el tamaño de la pantalla
   const imagesPerPageSM = 25;
   const imagesPerPageMD = 30;
   const imagesPerPageLG = 35;
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Ajustar el número de imágenes por página según el tamaño de pantalla
   const imagesPerPage = window.innerWidth >= 1024 ? imagesPerPageLG : window.innerWidth >= 768 ? imagesPerPageMD : imagesPerPageSM;
 
   const paginatedData = allData.slice(currentPage * imagesPerPage, (currentPage + 1) * imagesPerPage);
@@ -110,4 +108,4 @@ const Listar = () => {
   );
 };
 
-export default Listar;
+export default Visualizar;
