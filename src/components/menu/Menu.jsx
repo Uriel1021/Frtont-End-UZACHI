@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaTint, FaUserFriends, FaHome, FaPlus, FaEdit, FaWater, FaLeaf, FaPaw, FaTimes } from 'react-icons/fa';
+import { FaTint, FaUserFriends, FaHome, FaPlus, FaEdit, FaWater, FaLeaf, FaPaw } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
 
@@ -108,7 +108,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col w-full md:w-[80%]"> {/* Ajuste para pantallas md y lg */}
+    <div className="h-screen flex flex-col w-full md:w-[80%] mb-8"> {/* Añadido mb-8 para dejar espacio */}
       {/* Nuevo div con el texto de Bienvenidos alineado a la izquierda */}
       <div className="bg-white text-black text-left py-4 px-6">
         <h1 className="text-3xl font-bold">Bienvenido Uriel</h1>
@@ -131,7 +131,7 @@ const Menu = () => {
       </div>
 
       {/* Parte inferior: Recordatorio y Calendario en una fila */}
-      <div className="flex flex-col lg:flex-row flex-grow">
+      <div className="flex flex-col lg:flex-row flex-grow mb-8"> {/* Añadido mb-8 para separar el contenido del footer */}
         {/* Sección de recordatorio */}
         <div className="w-full p-4 bg-white">
           <h2 className="text-xl font-bold mb-4">Monitoreos Pendientes</h2>
@@ -181,7 +181,7 @@ const Menu = () => {
         </div>
 
         {/* Sección del calendario */}
-        <div className="w-full p-4 bg-white">
+        <div className="w-full p-4 bg-white overflow-hidden"> {/* Añadido overflow-hidden */}
           <h2 className="text-xl font-bold mb-4">Calendario</h2>
           <Calendar onChange={onDateChange} value={selectedDate} className="w-full" />
         </div>
@@ -190,7 +190,7 @@ const Menu = () => {
       {/* Modal para programar monitoreo */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%]">
+          <div className="bg-white p-8 rounded-lg w-[90%] md:w-[50%]">
             <h2 className="text-2xl font-bold mb-4">Programar Monitoreo</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
