@@ -45,8 +45,8 @@ const Menu = () => {
   const updateItemsPerPage = () => {
     const width = window.innerWidth;
     if (width < 640) {
-      setItemsPerPage(2); // Pantallas pequeñas (sm)
-    } else if (width >= 420 && width < 1024) {
+      setItemsPerPage(1); // Pantallas pequeñas (sm)
+    } else if (width >= 320 && width < 1024) {
       setItemsPerPage(10); // Pantallas medianas (md)
     } else {
       setItemsPerPage(10); // Pantallas grandes (lg)
