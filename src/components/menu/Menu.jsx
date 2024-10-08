@@ -46,7 +46,7 @@ const Menu = () => {
     const width = window.innerWidth;
     if (width < 640) {
       setItemsPerPage(1); // Pantallas pequeñas (sm)
-    } else if (width >= 320 && width < 1024) {
+    } else if (width >= 340 && width < 1024) {
       setItemsPerPage(10); // Pantallas medianas (md)
     } else {
       setItemsPerPage(10); // Pantallas grandes (lg)
@@ -181,7 +181,7 @@ const Menu = () => {
         </div>
 
         {/* Sección del calendario */}
-        <div className="w-full p-4 bg-white overflow-hidden"> {/* Añadido overflow-hidden */}
+        <div className="w-full p-4 bg-white overflow-hidden sm:pb-[50px]"> {/* Añadido padding-bottom en pantallas pequeñas */}
           <h2 className="text-xl font-bold mb-4">Calendario</h2>
           <Calendar onChange={onDateChange} value={selectedDate} className="w-full" />
         </div>
@@ -189,9 +189,9 @@ const Menu = () => {
 
       {/* Modal para programar monitoreo */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg w-[90%] md:w-[50%]">
-            <h2 className="text-2xl font-bold mb-4">Programar Monitoreo</h2>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h2 className="text-lg font-bold mb-4">Programar nuevo monitoreo</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="block text-gray-700">Fecha:</label>
