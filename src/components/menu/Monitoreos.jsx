@@ -12,24 +12,22 @@ const Monitoreos = () => {
   ];
 
   return (
-    <div className="mt-8 mb-8 p-4 md:p-8">
-      <h1 className="text-center text-2xl md:text-4xl font-bold text-green-800 mb-8 -mt-20">Monitoreos</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 mt-8">
+    <div className="p-4 md:p-8" style={{ marginTop: '-250px' }}>
+      <h1 className="text-center text-2xl md:text-4xl font-bold text-green-800 mb-12 mt-4">Monitoreos</h1>
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-12">
         {menuItems.map((item, index) => (
-          <div key={index} className={`${item.bgColor} p-4 md:p-6 rounded-lg shadow-md flex flex-col items-center md:items-start`}>
-            <img src={item.icon} alt={item.title} className="w-12 h-12 md:w-24 md:h-24 rounded-full mb-4 md:mb-0" />
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-lg md:text-xl font-bold">{item.title}</h2>
-              <p className="hidden md:block">{item.description}</p>
+          <div 
+            key={index} 
+            className={`${item.bgColor} p-4 md:p-6 rounded-lg shadow-md flex flex-col items-center md:items-start cursor-pointer transform transition-transform hover:scale-105 hover:shadow-lg duration-300`} 
+            onClick={() => navigate(item.link)}
+          >
+            <div className="flex items-center space-x-4">
+              <img src={item.icon} alt={item.title} className="w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full" />
+              <div className="flex-1 text-center md:text-left">
+                <h2 className="text-lg md:text-xl lg:text-2xl font-bold">{item.title}</h2>
+              </div>
             </div>
-            <div className="w-full mt-2 flex justify-end">
-              <button 
-                className="bg-blue-500 text-white py-1 px-3 md:py-2 md:px-4 rounded hover:bg-blue-600 transition"
-                onClick={() => navigate(item.link)}
-              >
-                Administrar
-              </button>
-            </div>
+            <p className="hidden lg:block mt-2 text-gray-700">{item.description}</p>
           </div>
         ))}
       </div>
