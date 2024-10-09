@@ -45,7 +45,7 @@ const Menu = () => {
   const updateItemsPerPage = () => {
     const width = window.innerWidth;
     if (width < 640) {
-      setItemsPerPage(1); // Pantallas pequeñas (sm)
+      setItemsPerPage(3); // Pantallas pequeñas (sm)
     } else if (width >= 340 && width < 1024) {
       setItemsPerPage(10); // Pantallas medianas (md)
     } else {
@@ -181,7 +181,7 @@ const Menu = () => {
         </div>
 
         {/* Sección del calendario */}
-        <div className="w-full p-4 bg-white overflow-hidden sm:pb-[50px]"> {/* Añadido padding-bottom en pantallas pequeñas */}
+        <div className="hidden sm:block w-full p-4 bg-white overflow-hidden sm:pb-[50px]"> {/* Añadido padding-bottom en pantallas pequeñas */}
           <h2 className="text-xl font-bold mb-4">Calendario</h2>
           <Calendar onChange={onDateChange} value={selectedDate} className="w-full" />
         </div>
