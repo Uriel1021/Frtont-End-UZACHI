@@ -33,22 +33,25 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   informacion: Yup.object().shape({
     hora: Yup.string().required("Hora es requerida"),
-    fecha: Yup.string().required("Fecha es requerido"),
+    fecha: Yup.string().required("Fecha es requerida"),
   }),
   datosfisicoquimico: Yup.object().shape({
-    temperatura: Yup.string().required("Temperatura es requerido"),
-    conductividad: Yup.string().required("Conductividad es requerida"),
-    ph: Yup.string().required("Ph es requerido"),
-    dureza: Yup.string().required("Dureza es requerida"),
-    nitritos: Yup.string().required("Nitritos es requerido"),
-    alcalinidad: Yup.string().required("Alcalinidad es requerida"),
-    acidez: Yup.string().required("Acidez es requerida"),
-    
+    temperatura: Yup.number().typeError("Debe ser un número").required("Temperatura es requerida"),
+    conductividad: Yup.number().typeError("Debe ser un número").required("Conductividad es requerida"),
+    ph: Yup.number()
+      .typeError("Debe ser un número")
+      .min(0, "El pH no puede ser menor a 0")
+      .max(14, "El pH no puede ser mayor a 14")
+      .required("pH es requerido"),
+    dureza: Yup.number().typeError("Debe ser un número").required("Dureza es requerida"),
+    nitritos: Yup.number().typeError("Debe ser un número").required("Nitritos es requerido"),
+    alcalinidad: Yup.number().typeError("Debe ser un número").required("Alcalinidad es requerida"),
+    acidez: Yup.number().typeError("Debe ser un número").required("Acidez es requerida"),
   }),
   datosbacteriologicos: Yup.object().shape({
-    coliformestotales: Yup.string().required("Coliformes totales es requerido"),
-    coliformesfecales: Yup.string().required("Coliformes fecales es requerido"),
-    flujovolumetrico: Yup.string().required("Flujo volumetrico es requerido"),
+    coliformestotales: Yup.number().typeError("Debe ser un número").required("Coliformes totales es requerido"),
+    coliformesfecales: Yup.number().typeError("Debe ser un número").required("Coliformes fecales es requerido"),
+    flujovolumetrico: Yup.number().typeError("Debe ser un número").required("Flujo volumétrico es requerido"),
   }),
 });
 
@@ -91,7 +94,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                     fullWidth
                     id="informacion.hora"
                     name="informacion.hora"
-                    label="Hora"
+                    label="Hora (hh:mm:ss)"
                     value={values.informacion.hora}
                     error={Boolean(
                       touched.informacion?.hora && errors.informacion?.hora
@@ -106,7 +109,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                     fullWidth
                     id="informacion.fecha"
                     name="informacion.fecha"
-                    label="Fecha"
+                    label="Fecha (dd/mm/aaaa)"
                     value={values.informacion.fecha}
                     error={Boolean(
                       touched.informacion?.fecha && errors.informacion?.fecha
@@ -134,7 +137,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.temperatura"
                   name="datosfisicoquimico.temperatura"
-                  label="Temperatura"
+                  label="Temperatura °C"
                   value={values.datosfisicoquimico.temperatura}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -153,7 +156,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.conductividad"
                   name="datosfisicoquimico.conductividad"
-                  label="Conductividad"
+                  label="Conductividad µS/cm"
                   value={values.datosfisicoquimico.conductividad}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -191,7 +194,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.dureza"
                   name="datosfisicoquimico.dureza"
-                  label="Dureza"
+                  label="Dureza mg/L"
                   value={values.datosfisicoquimico.dureza}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -210,7 +213,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.nitritos"
                   name="datosfisicoquimico.nitritos"
-                  label="Nitritos"
+                  label="Nitritos mg/L"
                   value={values.datosfisicoquimico.nitritos}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -229,7 +232,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.alcalinidad"
                   name="datosfisicoquimico.alcalinidad"
-                  label="Alcalinidad"
+                  label="Alcalinidad mg/L"
                   value={values.datosfisicoquimico.alcalinidad}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -248,7 +251,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosfisicoquimico.acidez"
                   name="datosfisicoquimico.acidez"
-                  label="Acidez"
+                  label="Acidez mg/L"
                   value={values.datosfisicoquimico.acidez}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -281,7 +284,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosbacteriologicos.coliformestotales"
                   name="datosbacteriologicos.coliformestotales"
-                  label="Coliformes Totales"
+                  label="Coliformes Totales (NMP/100 mL)"
                   value={values.datosbacteriologicos.coliformestotales}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -300,7 +303,7 @@ const NuevoLaboratorioMonitoreoAgua = () => {
                   fullWidth
                   id="datosbacteriologicos.coliformesfecales"
                   name="datosbacteriologicos.coliformesfecales"
-                  label="Coliformes Fecales"
+                  label="Coliformes Fecales (NMP/100 mL)"
                   value={values.datosbacteriologicos.coliformesfecales}
                   onChange={handleChange}
                   onBlur={handleBlur}

@@ -57,50 +57,42 @@ const validationSchema = Yup.object().shape({
   datosPuntoMuestreo: Yup.object().shape({
     comunidad: Yup.string().required("Comunidad es requerida"),
     paraje: Yup.string().required("Paraje es requerido"),
-    coordenadaX: Yup.string().required("Coordenada X es requerida"),
-    coordenadaY: Yup.string().required("Coordenada Y es requerida"),
+    coordenadaX: Yup.number().typeError("Debe ser un número").required("Coordenada X es requerida"),
+    coordenadaY: Yup.number().typeError("Debe ser un número").required("Coordenada Y es requerida"),
   }),
   parametros: Yup.object().shape({
-    ph: Yup.string().required("pH es requerido"),
-    temperaturaAgua: Yup.string().required("Temperatura del agua es requerida"),
-    temperaturaAire: Yup.string().required("Temperatura del aire es requerida"),
-    conductividad: Yup.string().required("Conductividad es requerida"),
-    solidosDisueltos: Yup.string().required(
-      "Sólidos disueltos totales son requeridos"
-    ),
+    ph: Yup.number()
+      .typeError("Debe ser un número")
+      .required("pH es requerido")
+      .min(0, "El pH no puede ser menor a 0")
+      .max(14, "El pH no puede ser mayor a 14"),
+    temperaturaAgua: Yup.number().typeError("Debe ser un número").required("Temperatura del agua es requerida"),
+    temperaturaAire: Yup.number().typeError("Debe ser un número").required("Temperatura del aire es requerida"),
+    conductividad: Yup.number().typeError("Debe ser un número").required("Conductividad es requerida"),
+    solidosDisueltos: Yup.number().typeError("Debe ser un número").required("Sólidos disueltos totales son requeridos"),
   }),
   metodoMonitoreo: Yup.string().required("Método de monitoreo es requerido"),
   seccionVelocidad: Yup.object().shape({
     cauces: Yup.array().of(
       Yup.object().shape({
-        longitudInicial: Yup.string().required("Longitud inicial es requerida"),
-        longitudFinal: Yup.string().required("Longitud final es requerida"),
-        profundidadInicial: Yup.string().required(
-          "Profundidad inicial es requerida"
-        ),
-        profundidadFinal: Yup.string().required(
-          "Profundidad final es requerida"
-        ),
-        velocidad: Yup.string().required("Velocidad es requerida"),
+        longitudInicial: Yup.number().typeError("Debe ser un número").required("Longitud inicial es requerida"),
+        longitudFinal: Yup.number().typeError("Debe ser un número").required("Longitud final es requerida"),
+        profundidadInicial: Yup.number().typeError("Debe ser un número").required("Profundidad inicial es requerida"),
+        profundidadFinal: Yup.number().typeError("Debe ser un número").required("Profundidad final es requerida"),
+        velocidad: Yup.number().typeError("Debe ser un número").required("Velocidad es requerida"),
       })
     ),
-    noSecciones: Yup.string().required("Número de secciones es requerido"),
-    anchoTotalCauce: Yup.string().required(
-      "Ancho total del cauce es requerido"
-    ),
+    noSecciones: Yup.number().typeError("Debe ser un número").required("Número de secciones es requerido"),
+    anchoTotalCauce: Yup.number().typeError("Debe ser un número").required("Ancho total del cauce es requerido"),
     observaciones: Yup.string(),
   }),
   medicionDirecta: Yup.object().shape({
-    ancho: Yup.string().required("Ancho es requerido"),
-    largo: Yup.string().required("Largo es requerido"),
-    altura: Yup.string().required("Altura es requerida"),
-    volumenParcial: Yup.string().required("Volumen parcial es requerido"),
-    alturaContenidoAgua: Yup.string().required(
-      "Altura del contenido de agua es requerida"
-    ),
-    porcentajeContenidoAgua: Yup.string().required(
-      "Porcentaje de contenido de agua es requerido"
-    ),
+    ancho: Yup.number().typeError("Debe ser un número").required("Ancho es requerido"),
+    largo: Yup.number().typeError("Debe ser un número").required("Largo es requerido"),
+    altura: Yup.number().typeError("Debe ser un número").required("Altura es requerida"),
+    volumenParcial: Yup.number().typeError("Debe ser un número").required("Volumen parcial es requerido"),
+    alturaContenidoAgua: Yup.number().typeError("Debe ser un número").required("Altura del contenido de agua es requerida"),
+    porcentajeContenidoAgua: Yup.number().typeError("Debe ser un número").required("Porcentaje de contenido de agua es requerido"),
   }),
 });
 
@@ -288,7 +280,7 @@ const NuevoMonitoreoAgua = () => {
                 fullWidth
                 id="parametros.temperaturaAgua"
                 name="parametros.temperaturaAgua"
-                label="Temperatura del Agua"
+                label="Temperatura del Agua °C"
                 value={values.parametros.temperaturaAgua}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -307,7 +299,7 @@ const NuevoMonitoreoAgua = () => {
                 fullWidth
                 id="parametros.temperaturaAire"
                 name="parametros.temperaturaAire"
-                label="Temperatura del Aire"
+                label="Temperatura del Aire °C "
                 value={values.parametros.temperaturaAire}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -326,7 +318,7 @@ const NuevoMonitoreoAgua = () => {
                 fullWidth
                 id="parametros.conductividad"
                 name="parametros.conductividad"
-                label="Conductividad"
+                label="Conductividad µS/cm"
                 value={values.parametros.conductividad}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -345,7 +337,7 @@ const NuevoMonitoreoAgua = () => {
                 fullWidth
                 id="parametros.solidosDisueltos"
                 name="parametros.solidosDisueltos"
-                label="Sólidos Disueltos Totales"
+                label="Sólidos Disueltos Totales mg/L"
                 value={values.parametros.solidosDisueltos}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -420,7 +412,7 @@ const NuevoMonitoreoAgua = () => {
                             fullWidth
                             id={`seccionVelocidad.cauces[${index}].longitudInicial`}
                             name={`seccionVelocidad.cauces[${index}].longitudInicial`}
-                            label="Longitud Inicial"
+                            label="Longitud Inicial (metros)"
                             value={
                               values.seccionVelocidad.cauces[index]
                                 .longitudInicial
@@ -446,7 +438,7 @@ const NuevoMonitoreoAgua = () => {
                             fullWidth
                             id={`seccionVelocidad.cauces[${index}].longitudFinal`}
                             name={`seccionVelocidad.cauces[${index}].longitudFinal`}
-                            label="Longitud Final"
+                            label="Longitud Final (metros)"
                             value={
                               values.seccionVelocidad.cauces[index]
                                 .longitudFinal
@@ -472,7 +464,7 @@ const NuevoMonitoreoAgua = () => {
                             fullWidth
                             id={`seccionVelocidad.cauces[${index}].profundidadInicial`}
                             name={`seccionVelocidad.cauces[${index}].profundidadInicial`}
-                            label="Profundidad Inicial"
+                            label="Profundidad Inicial (metros)"
                             value={
                               values.seccionVelocidad.cauces[index]
                                 .profundidadInicial
@@ -498,7 +490,7 @@ const NuevoMonitoreoAgua = () => {
                             fullWidth
                             id={`seccionVelocidad.cauces[${index}].profundidadFinal`}
                             name={`seccionVelocidad.cauces[${index}].profundidadFinal`}
-                            label="Profundidad Final"
+                            label="Profundidad Final (metros)"
                             value={
                               values.seccionVelocidad.cauces[index]
                                 .profundidadFinal
@@ -524,7 +516,7 @@ const NuevoMonitoreoAgua = () => {
                             fullWidth
                             id={`seccionVelocidad.cauces[${index}].velocidad`}
                             name={`seccionVelocidad.cauces[${index}].velocidad`}
-                            label="Velocidad"
+                            label="Velocidad m/s"
                             value={
                               values.seccionVelocidad.cauces[index].velocidad
                             }
@@ -604,7 +596,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="seccionVelocidad.anchoTotalCauce"
                   name="seccionVelocidad.anchoTotalCauce"
-                  label="Ancho Total del Cauce"
+                  label="Ancho Total del Cauce (metros)"
                   value={values.seccionVelocidad.anchoTotalCauce}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -658,7 +650,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.ancho"
                   name="medicionDirecta.ancho"
-                  label="Ancho"
+                  label="Ancho (metros)"
                   value={values.medicionDirecta.ancho}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -677,7 +669,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.largo"
                   name="medicionDirecta.largo"
-                  label="Largo"
+                  label="Largo (metros)"
                   value={values.medicionDirecta.largo}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -696,7 +688,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.altura"
                   name="medicionDirecta.altura"
-                  label="Altura"
+                  label="Altura (metros)"
                   value={values.medicionDirecta.altura}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -715,7 +707,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.volumenParcial"
                   name="medicionDirecta.volumenParcial"
-                  label="Volumen Total"
+                  label="Volumen Total m³"
                   value={values.medicionDirecta.volumenParcial}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -734,7 +726,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.alturaContenidoAgua"
                   name="medicionDirecta.alturaContenidoAgua"
-                  label="Altura del Contenido de Agua"
+                  label="Altura del Agua (metros)"
                   value={values.medicionDirecta.alturaContenidoAgua}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -753,7 +745,7 @@ const NuevoMonitoreoAgua = () => {
                   fullWidth
                   id="medicionDirecta.porcentajeContenidoAgua"
                   name="medicionDirecta.porcentajeContenidoAgua"
-                  label="Porcentaje de Contenido de Agua"
+                  label="Contenido de Agua %"
                   value={values.medicionDirecta.porcentajeContenidoAgua}
                   onChange={handleChange}
                   onBlur={handleBlur}

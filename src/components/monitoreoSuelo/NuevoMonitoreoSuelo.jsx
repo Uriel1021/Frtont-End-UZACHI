@@ -27,6 +27,7 @@ const initialValues = {
 };
 
 // Esquema de validación con Yup
+// Esquema de validación con Yup
 const validationSchema = Yup.object().shape({
   datosTecnico: Yup.object().shape({
     nombre: Yup.string().required('El nombre es requerido'),
@@ -34,15 +35,15 @@ const validationSchema = Yup.object().shape({
   datosPuntoMuestreo: Yup.object().shape({
     comunidad: Yup.string().required('La comunidad es requerida'),
     paraje: Yup.string().required('El paraje es requerido'),
-    coordenadaX: Yup.string().required('La coordenada X es requerida'),
-    coordenadaY: Yup.string().required('La coordenada Y es requerida'),
+    coordenadaX: Yup.number().typeError('Debe ser un número').required('La coordenada X es requerida'),
+    coordenadaY: Yup.number().typeError('Debe ser un número').required('La coordenada Y es requerida'),
     tipoVegetacion: Yup.string().required('El tipo de vegetación es requerido'),
-    numeroSitios: Yup.string().required('El número de sitios es requerido'),
+    numeroSitios: Yup.number().typeError('Debe ser un número').required('El número de sitios es requerido'),
   }),
   parametros: Yup.object().shape({
-    altitud: Yup.string().required('La altitud es requerida'),
-    temperaturaAmbiente: Yup.string().required('La temperatura ambiente es requerida'),
-    temperaturaSuelo: Yup.string().required('La temperatura del suelo es requerida'),
+    altitud: Yup.number().typeError('Debe ser un número').required('La altitud es requerida'),
+    temperaturaAmbiente: Yup.number().typeError('Debe ser un número').required('La temperatura ambiente es requerida'),
+    temperaturaSuelo: Yup.number().typeError('Debe ser un número').required('La temperatura del suelo es requerida'),
     estrato: Yup.string().required('El estrato es requerido'),
   }),
   observaciones: Yup.string(),
@@ -224,7 +225,7 @@ const NuevoMonitoreoSuelo = () => {
                 fullWidth
                 id="parametros.altitud"
                 name="parametros.altitud"
-                label="Altitud"
+                label="Altitud (msnm)"
                 value={values.parametros.altitud}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -237,7 +238,7 @@ const NuevoMonitoreoSuelo = () => {
                 fullWidth
                 id="parametros.temperaturaAmbiente"
                 name="parametros.temperaturaAmbiente"
-                label="Temperatura Ambiente"
+                label="Temperatura Ambiente °C"
                 value={values.parametros.temperaturaAmbiente}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -250,7 +251,7 @@ const NuevoMonitoreoSuelo = () => {
                 fullWidth
                 id="parametros.temperaturaSuelo"
                 name="parametros.temperaturaSuelo"
-                label="Temperatura del Suelo"
+                label="Temperatura del Suelo °C"
                 value={values.parametros.temperaturaSuelo}
                 onChange={handleChange}
                 onBlur={handleBlur}

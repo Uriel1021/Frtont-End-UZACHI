@@ -20,15 +20,19 @@ const initialValues = {
 
 const validationSchema = Yup.object().shape({
   informacion: Yup.object().shape({
-    hora: Yup.string().required("Hora es requerido"),
-    fecha: Yup.string().required("Fecha es requerido"),
+    hora: Yup.string().required("Hora es requerida"),
+    fecha: Yup.string().required("Fecha es requerida"),
   }),
   datosLaboratorio: Yup.object().shape({
-    ph: Yup.string().required("Ph es requerido"),
-    conductividad: Yup.string().required("Conductividad es requerido"),
-    materiaorganica: Yup.string().required("Materia Orgánica es requerido"),
-    textura: Yup.string().required("Textura es requerido"),
-    densidad: Yup.string().required("Densidad es requerido"),
+    ph: Yup.number()
+      .typeError("Debe ser un número")
+      .min(0, "El pH no puede ser menor a 0")
+      .max(14, "El pH no puede ser mayor a 14")
+      .required("pH es requerido"),
+    conductividad: Yup.number().typeError("Debe ser un número").required("Conductividad es requerida"),
+    materiaorganica: Yup.number().typeError("Debe ser un número").required("Materia Orgánica es requerida"),
+    textura: Yup.string().required("Textura es requerida"),
+    densidad: Yup.number().typeError("Debe ser un número").required("Densidad es requerida"),
   }),
 });
 
@@ -69,7 +73,7 @@ const NuevoLaboratorioMonitoreoSuelo = () => {
                   fullWidth
                   id="informacion.hora"
                   name="informacion.hora"
-                  label="Hora"
+                  label="Hora (hh:mm:ss)"
                   value={values.informacion.hora}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -86,7 +90,7 @@ const NuevoLaboratorioMonitoreoSuelo = () => {
                   fullWidth
                   id="informacion.fecha"
                   name="informacion.fecha"
-                  label="Fecha"
+                  label="Fecha (dd/mm/aaaa)"
                   value={values.informacion.fecha}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -132,7 +136,7 @@ const NuevoLaboratorioMonitoreoSuelo = () => {
                   fullWidth
                   id="datosLaboratorio.conductividad"
                   name="datosLaboratorio.conductividad"
-                  label="Conductividad"
+                  label="Conductividad  µS/cm"
                   value={values.datosLaboratorio.conductividad}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -151,7 +155,7 @@ const NuevoLaboratorioMonitoreoSuelo = () => {
                   fullWidth
                   id="datosLaboratorio.materiaorganica"
                   name="datosLaboratorio.materiaorganica"
-                  label="Materia Orgánica"
+                  label="Materia Orgánica %"
                   value={values.datosLaboratorio.materiaorganica}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -189,7 +193,7 @@ const NuevoLaboratorioMonitoreoSuelo = () => {
                   fullWidth
                   id="datosLaboratorio.densidad"
                   name="datosLaboratorio.densidad"
-                  label="Densidad"
+                  label="Densidad g/cm³"
                   value={values.datosLaboratorio.densidad}
                   onChange={handleChange}
                   onBlur={handleBlur}
