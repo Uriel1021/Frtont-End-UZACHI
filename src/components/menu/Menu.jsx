@@ -47,9 +47,9 @@ const Menu = () => {
     if (width < 640) {
       setItemsPerPage(3); // Pantallas pequeñas (sm)
     } else if (width >= 340 && width < 1024) {
-      setItemsPerPage(10); // Pantallas medianas (md)
+      setItemsPerPage(5); // Pantallas medianas (md)
     } else {
-      setItemsPerPage(10); // Pantallas grandes (lg)
+      setItemsPerPage(5); // Pantallas grandes (lg)
     }
   };
 
@@ -120,7 +120,7 @@ const Menu = () => {
         {menuItems.map((item, index) => (
           <button
             key={index}
-            className={`flex items-center md:flex-col justify-center w-full sm:w-[200px] md:w-[30%] lg:w-[32%] h-[50px] md:h-[90px] rounded-lg ${item.bgColor} text-white hover:bg-opacity-80 transition duration-300 mb-2 mx-2`} // Ajuste de md:w-[30%] para pantallas medianas y lg:w-[32%] para pantallas grandes
+            className={`flex items-center md:flex-col justify-center w-full sm:w-[200px] md:w-[30%] lg:w-[30%] h-[50px] md:h-[90px] rounded-lg ${item.bgColor} text-white hover:bg-opacity-80 transition duration-300 mb-2 mx-2`} // Ajuste de md:w-[30%] para pantallas medianas y lg:w-[32%] para pantallas grandes
             onClick={() => navigate(item.link)}
           >
             {item.icon}
