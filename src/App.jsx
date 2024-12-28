@@ -9,12 +9,21 @@ import './index.css';
 const App = () => {
   return (
     <Router>
-      <div className="bg-gray-100 min-h-screen">
+      <div className="bg-gray-100 min-h-screen flex flex-col">
+        {/* Condicional de Header y Navbar para pantallas grandes y pequeñas */}
         <Header />
-        <Navbar />
-        <div className="flex justify-center items-center min-h-screen bg-white">
+        
+        {/* Navbar se muestra en pantallas grandes y se oculta en pequeñas */}
+        <div className="sm:block md:block lg:block">
+          <Navbar />
+        </div>
+
+        {/* Contenido principal que ocupa el resto de la pantalla */}
+        <div className="flex-1 flex justify-center items-center bg-white px-4 py-6">
           <AppRoutes />
         </div>
+
+        {/* Footer siempre visible */}
         <Footer />
       </div>
     </Router>
