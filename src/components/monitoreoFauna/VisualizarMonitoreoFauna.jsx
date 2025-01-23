@@ -31,24 +31,25 @@ const Visualizar = () => {
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-center text-4xl font-bold text-green-800 mb-8">Visualizar Monitoreo</h1>
+    <div className="p-2">
+      <h1 className="text-center text-4xl text-green-800 mb-4">Visualizar Monitoreo</h1>
       
       {/* Información de la comunidad */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:text-left sm:text-center mb-4">
-        <div className="bg-gray-100 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold">Comunidad</h3>
-          <p>SANTIAGO COMALTEPEC</p>
-        </div>
-        <div className="bg-gray-100 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold">Paraje</h3>
-          <p>LA ESPERANZA</p>
-        </div>
-        <div className="bg-gray-100 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold">Fecha</h3>
-          <p>12-12-2024 01:00:00</p>
-        </div>
-      </div>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:text-left sm:text-center mb-4 transform scale-85">
+  <div className="bg-gray-100 p-4 rounded-lg shadow">
+    <h3 className="text-lg font-semibold">Comunidad</h3>
+    <p>SANTIAGO COMALTEPEC</p>
+  </div>
+  <div className="bg-gray-100 p-4 rounded-lg shadow">
+    <h3 className="text-lg font-semibold">Paraje</h3>
+    <p>LA ESPERANZA</p>
+  </div>
+  <div className="bg-gray-100 p-4 rounded-lg shadow">
+    <h3 className="text-lg font-semibold">Fecha</h3>
+    <p>12-12-2024 01:00:00</p>
+  </div>
+</div>
+
 
       {/* Filtros y botones */}
       <div className="flex flex-wrap justify-between items-center mb-4 space-y-2 sm:space-y-0">

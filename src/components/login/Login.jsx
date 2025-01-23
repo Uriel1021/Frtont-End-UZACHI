@@ -31,7 +31,7 @@ const Login = () => {
         style={{
           width: '320px', // Tamaño reducido en píxeles
           padding: '20px', // Espaciado reducido
-          transform: 'scale(0.85)', // Reduce al 20% su tamaño
+          transform: 'scale(0.83)', // Reduce al 20% su tamaño
           transformOrigin: 'top center', // Mantiene el centro en la parte superior
           maxWidth: '100%', // Asegura que no se sobrepase el tamaño de la pantalla
         }}
@@ -43,8 +43,8 @@ const Login = () => {
           style={{
             display: 'block',
             margin: '0 auto 16px',
-            width: '60px', // Tamaño reducido del logo
-            height: '60px', // Tamaño reducido del logo
+            width: '80px', // Tamaño reducido del logo
+            height: '70px', // Tamaño reducido del logo
           }}
         />
         <Typography variant="h5" gutterBottom className="text-center text-green-800 font-bold">

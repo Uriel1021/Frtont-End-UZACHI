@@ -49,7 +49,7 @@ const Menu = () => {
     } else if (width >= 340 && width < 1024) {
       setItemsPerPage(5); // Pantallas medianas (md)
     } else {
-      setItemsPerPage(5); // Pantallas grandes (lg)
+      setItemsPerPage(8); // Pantallas grandes (lg)
     }
   };
 
@@ -110,17 +110,17 @@ const Menu = () => {
   return (
     <div className="h-screen flex flex-col w-full md:w-[80%] mb-8"> {/* Añadido mb-8 para dejar espacio */}
       {/* Nuevo div con el texto de Bienvenidos alineado a la izquierda */}
-      <div className="bg-white text-black text-left py-4 px-6">
+      <div className="bg-white text-black text-left px-2">
         <h1 className="text-3xl font-bold">Bienvenido Uriel</h1>
         <p className="text-sm">¡Explora el menú para comenzar!</p>
       </div>
 
       {/* Parte superior: Menú con icono, título y descripción */}
-      <div className="flex flex-wrap justify-around bg-white p-4">
+      <div className="flex flex-wrap justify-around bg-white p-2">
         {menuItems.map((item, index) => (
           <button
             key={index}
-            className={`flex items-center md:flex-col justify-center w-full sm:w-[200px] md:w-[30%] lg:w-[30%] h-[50px] md:h-[90px] rounded-lg ${item.bgColor} text-white hover:bg-opacity-80 transition duration-300 mb-2 mx-2`} // Ajuste de md:w-[30%] para pantallas medianas y lg:w-[32%] para pantallas grandes
+            className={`flex items-center md:flex-col justify-center w-full sm:w-[200px] md:w-[30%] lg:w-[30%] lg:h-[75px] md:h-[90px] rounded-lg ${item.bgColor} text-white hover:bg-opacity-80 transition duration-300 mb-2 mx-2`} // Ajuste de md:w-[30%] para pantallas medianas y lg:w-[32%] para pantallas grandes
             onClick={() => navigate(item.link)}
           >
             {item.icon}
@@ -131,15 +131,15 @@ const Menu = () => {
       </div>
 
       {/* Parte inferior: Recordatorio y Calendario en una fila */}
-      <div className="flex flex-col lg:flex-row flex-grow mb-8"> {/* Añadido mb-8 para separar el contenido del footer */}
+      <div className="flex flex-col lg:flex-row flex-grow mb-10"> {/* Añadido mb-8 para separar el contenido del footer */}
         {/* Sección de recordatorio */}
-        <div className="w-full p-4 bg-white">
-          <h2 className="text-xl font-bold mb-4">Monitoreos Pendientes</h2>
+        <div className="w-full p-2 bg-white">
+          <h2 className="text-xl font-bold mb-2">Monitoreos Pendientes</h2>
 
           {/* Nuevo botón para Programar monitoreo */}
-          <div className="mb-4">
+          <div className="mb-2">
             <button 
-              className="border border-blue-500 text-blue-500 py-2 px-4 rounded-lg hover:bg-blue-100 transition duration-300 flex items-center"
+              className="border border-blue-500 text-blue-500 py-1 px-2 rounded-lg hover:bg-blue-100 transition duration-300 flex items-center"
               onClick={toggleModal} // Abre el modal
             >
               <FaPlus className="mr-2" /> Programar monitoreo
@@ -147,12 +147,12 @@ const Menu = () => {
           </div>
 
           {/* Lista de Monitoreos Paginada */}
-          <ul className="space-y-2">
+          <ul className="space-y-1">
             {currentItems.map((item, index) => (
-              <li key={index} className="flex justify-between p-2 bg-gray-100 rounded-lg">
+              <li key={index} className="flex justify-between p-1 bg-gray-100 rounded-lg">
                 <div className="flex items-center">
                   {item.icon}
-                  <span className="ml-2">{item.type}</span>
+                  <span className="ml-4">{item.type}</span>
                 </div>
                 <div>
                   <span>{item.community}</span>
@@ -162,7 +162,7 @@ const Menu = () => {
           </ul>
 
           {/* Botones de paginación */}
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between mt-2">
             <button
               className={`py-2 px-4 rounded-lg border ${currentPage === 0 ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
               onClick={goToPreviousPage}
@@ -181,8 +181,8 @@ const Menu = () => {
         </div>
 
         {/* Sección del calendario */}
-        <div className="hidden sm:block w-full p-4 bg-white overflow-hidden sm:pb-[50px]"> {/* Añadido padding-bottom en pantallas pequeñas */}
-          <h2 className="text-xl font-bold mb-4">Calendario</h2>
+        <div className="hidden sm:block w-full p-1 bg-white overflow-hidden sm:pb-[50px]"> {/* Añadido padding-bottom en pantallas pequeñas */}
+          <h2 className="text-xl font-bold mb-2">Calendario</h2>
           <Calendar onChange={onDateChange} value={selectedDate} className="w-full" />
         </div>
       </div>

@@ -74,23 +74,26 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
         const isSmallScreen = useMediaQuery('(max-width: 600px)');
         const isMediumScreen = useMediaQuery('(max-width: 820px)');
 
+        // Estilos comunes para los botones
+        const buttonStyles = {
+          minWidth: isSmallScreen ? 'auto' : 'initial',
+          padding: isSmallScreen ? '2px 4px' : '4px 8px', // Más compacto
+          fontSize: isSmallScreen ? '10px' : '12px', // Reducir texto
+          borderRadius: '4px', // Opcional: bordes más redondeados
+          textTransform: 'none', // Evitar mayúsculas automáticas
+        };
+
         return (
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: '1.0rem' }}>
             <Button
               size={isSmallScreen ? 'small' : 'medium'}
               variant="outlined"
-              color="info"
+              color="success"
               startIcon={<FaImage />}
               onClick={() => handleAddImg(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '1px' : '6px 13px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
               >
-              {!(isSmallScreen || isMediumScreen) && 'Agregar Imágenes'}
+              {!(isSmallScreen || isMediumScreen) && 'Imágenes'}
             </Button>
 
             <Button
@@ -99,29 +102,17 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
               color="info"
               startIcon={<FaEye />}
               onClick={() => handleView(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Visualizar'}
             </Button>
             <Button
               size={isSmallScreen ? 'small' : 'medium'}
               variant="outlined"
-              color="primary"
+              color="secondary"
               startIcon={<FaEdit />}
               onClick={() => handleEdit(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Editar'}
             </Button>
@@ -131,13 +122,7 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
               color="error"
               startIcon={<FaTrash />}
               onClick={() => handleDeleteOpen(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Eliminar'}
             </Button>
@@ -178,7 +163,7 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
     <Stack
       sx={{
         mt: '-1.0rem', // Subir la tabla 30%
-        px: { xs: '1rem', sm: '2rem', md: '4rem' },
+        px: { xs: '1rem', sm: '1rem', md: '1rem' },
         width: { xs: '100%', sm: '90%', md: '80%' },
       }}
     >
@@ -191,9 +176,9 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
         }}
       >
         <Typography
-          variant="h4"
+          variant="h1"
           sx={{
-            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            fontSize: { xs: '1rem', sm: '1.5rem', md: '2rem' },
             color: 'green',
           }}
         >
@@ -201,13 +186,13 @@ const TablaDinamicaMonitoreoFauna = ({ titulo, columnas, data, rutaNuevo, rutaVi
         </Typography>
         <Box sx={{ mt: { xs: '0', sm: '0' }, ml: 'auto' }}>
           <button
-            onClick={handleNuevoMonitoreo}
-            className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2"
-            style={{ marginTop: '10px', marginBottom: '20px' }} // Padding de 10px arriba y abajo
-          >
-            <FaPlusCircle className="w-6 h-6" />
-            <span className="hidden sm:inline">Nuevo</span>
-          </button>
+                      onClick={handleNuevoMonitoreo}
+                      className="border border-blue-400 text-blue-400 py-1 px-2 rounded flex items-center space-x-2"
+                      style={{ marginTop: '10px', marginBottom: '20px' }} // Padding de 10px arriba y abajo
+                    >
+                      <FaPlusCircle className="w-4 h-4" />
+                      <span className="hidden sm:inline">Nuevo</span>
+                    </button>
         </Box>
       </Box>
 
