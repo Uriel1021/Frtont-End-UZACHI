@@ -70,6 +70,15 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
         const isSmallScreen = useMediaQuery('(max-width: 600px)');
         const isMediumScreen = useMediaQuery('(max-width: 820px)');
 
+        // Estilos comunes para los botones
+        const buttonStyles = {
+          minWidth: isSmallScreen ? 'auto' : 'initial',
+          padding: isSmallScreen ? '2px 4px' : '4px 8px', // Más compacto
+          fontSize: isSmallScreen ? '10px' : '12px', // Reducir texto
+          borderRadius: '4px', // Opcional: bordes más redondeados
+          textTransform: 'none', // Evitar mayúsculas automáticas
+        };
+
         return (
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: '0.5rem' }}>
             <Button
@@ -78,29 +87,17 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
               color="info"
               startIcon={<FaEye />}
               onClick={() => handleView(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Visualizar'}
             </Button>
             <Button
               size={isSmallScreen ? 'small' : 'medium'}
               variant="outlined"
-              color="primary"
+              color="secondary"
               startIcon={<FaEdit />}
               onClick={() => handleEdit(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Editar'}
             </Button>
@@ -110,13 +107,7 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
               color="error"
               startIcon={<FaTrash />}
               onClick={() => handleDeleteOpen(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Eliminar'}
             </Button>
@@ -180,13 +171,13 @@ const TablaDinamica = ({ titulo, columnas, data, ruta, rutaEliminar }) => {
         </Typography>
         <Box sx={{ mt: { xs: '0', sm: '0' }, ml: 'auto' }}>
           <button
-            onClick={handleNuevoMonitoreo}
-            className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2"
-            style={{ marginTop: '10px', marginBottom: '20px' }} // Padding de 10px arriba y abajo
-          >
-            <FaPlusCircle className="w-6 h-6" />
-            <span className="hidden sm:inline">Nuevo</span>
-          </button>
+                      onClick={handleNuevoMonitoreo}
+                      className="border border-blue-400 text-blue-400 py-1 px-2 rounded flex items-center space-x-2"
+                      style={{ marginTop: '10px', marginBottom: '20px' }} // Padding de 10px arriba y abajo
+                    >
+                      <FaPlusCircle className="w-4 h-4" />
+                      <span className="hidden sm:inline">Nuevo</span>
+                    </button>
         </Box>
       </Box>
 

@@ -32,7 +32,7 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
   const [open, setOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  const handleViewLab = (id) =>{
+  const handleViewLab = (id) => {
     //Redirigir a laboratorio
     console.log(`Visualizar el formulario o datos de laboratorio con ID: ${rutaLaboratorio} / ${id} `);
     navigate(rutaLaboratorio)
@@ -75,69 +75,54 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
         const isSmallScreen = useMediaQuery('(max-width: 600px)');
         const isMediumScreen = useMediaQuery('(max-width: 820px)');
 
+        // Estilos comunes para los botones
+        const buttonStyles = {
+          minWidth: isSmallScreen ? 'auto' : 'initial',
+          padding: isSmallScreen ? '2px 4px' : '4px 8px', // Más compacto
+          fontSize: isSmallScreen ? '10px' : '12px', // Reducir texto
+          borderRadius: '4px', // Opcional: bordes más redondeados
+          textTransform: 'none', // Evitar mayúsculas automáticas
+        };
+
         return (
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '0.5rem' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '0.2rem' }}>
             <Button
-              size={isSmallScreen ? 'small' : 'medium'}
+              size="small"
               variant="outlined"
               color="info"
               startIcon={<FaFlask />}
               onClick={() => handleViewLab(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Laboratorio'}
             </Button>
             <Button
-              size={isSmallScreen ? 'small' : 'medium'}
+              size="small"
               variant="outlined"
-              color="info"
+              color="success"
               startIcon={<FaEye />}
               onClick={() => handleView(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Visualizar'}
             </Button>
             <Button
-              size={isSmallScreen ? 'small' : 'medium'}
+              size="small"
               variant="outlined"
-              color="primary"
+              color="secondary"
               startIcon={<FaEdit />}
               onClick={() => handleEdit(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Editar'}
             </Button>
             <Button
-              size={isSmallScreen ? 'small' : 'medium'}
+              size="small"
               variant="outlined"
               color="error"
               startIcon={<FaTrash />}
               onClick={() => handleDeleteOpen(id)}
-              sx={{
-                minWidth: isSmallScreen ? 'auto' : 'initial',
-                padding: isSmallScreen ? '2px' : '6px 16px',
-                fontSize: isSmallScreen ? '12px' : 'inherit',
-                border: isSmallScreen || isMediumScreen ? 'none' : undefined, // Ocultar el borde en pantallas sm y md
-                backgroundColor: isSmallScreen || isMediumScreen ? 'transparent' : undefined, // Opcional: para mantener el fondo transparente
-              }}
+              sx={buttonStyles}
             >
               {!(isSmallScreen || isMediumScreen) && 'Eliminar'}
             </Button>
@@ -146,6 +131,7 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
       },
     },
   ];
+
 
   const table = useMaterialReactTable({
     columns: columnasConAcciones,
@@ -178,8 +164,8 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
   return (
     <Stack
       sx={{
-        mt: '-1.0rem', // Subir la tabla 30%
-        px: { xs: '1rem', sm: '2rem', md: '4rem' },
+        mt: '0.1rem',
+        px: { xs: '1rem', sm: '1rem', md: '1rem' },
         width: { xs: '100%', sm: '90%', md: '80%' },
       }}
     >
@@ -192,9 +178,9 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
         }}
       >
         <Typography
-          variant="h4"
+          variant="h1"
           sx={{
-            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            fontSize: { xs: '1rem', sm: '1.5rem', md: '2rem' },
             color: 'green',
           }}
         >
@@ -203,10 +189,10 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
         <Box sx={{ mt: { xs: '0', sm: '0' }, ml: 'auto' }}>
           <button
             onClick={handleNuevoMonitoreo}
-            className="border border-blue-400 text-blue-400 py-2 px-4 rounded flex items-center space-x-2"
+            className="border border-blue-400 text-blue-400 py-1 px-2 rounded flex items-center space-x-2"
             style={{ marginTop: '10px', marginBottom: '20px' }} // Padding de 10px arriba y abajo
           >
-            <FaPlusCircle className="w-6 h-6" />
+            <FaPlusCircle className="w-4 h-4" />
             <span className="hidden sm:inline">Nuevo</span>
           </button>
         </Box>
@@ -219,11 +205,27 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: { xs: '1rem', sm: '0' },
+          padding: '0.5rem', // Reducir el espacio interno si es necesario
         }}
       >
-        <MRT_GlobalFilterTextField table={table} sx={{ width: { xs: '100%', sm: 'auto' } }} />
-        <MRT_TablePagination table={table} sx={{ width: { xs: '100%', sm: 'auto' } }} />
+        <MRT_GlobalFilterTextField
+          table={table}
+          sx={{
+            width: { xs: 'auto', sm: '75%' },
+            fontSize: '0.8rem', // Reducir el tamaño de la fuente
+            padding: '0.25rem', // Reducir el padding para hacerlo más pequeño
+          }}
+        />
+        <MRT_TablePagination
+          table={table}
+          sx={{
+            width: { xs: '100%', sm: 'auto' },
+            fontSize: '0.875rem', // Reducir el tamaño de la fuente
+            padding: '0.25rem', // Reducir el padding
+          }}
+        />
       </Box>
+
       <TableContainer>
         <Table>
           <TableHead>
@@ -237,8 +239,8 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
                     sx={{
                       display:
                         (isSmallScreen || isMediumScreen) &&
-                        header.column.columnDef.hideOnSmallScreen &&
-                        index !== headerGroup.headers.length - 1 // Ocultar solo si no es el último campo
+                          header.column.columnDef.hideOnSmallScreen &&
+                          index !== headerGroup.headers.length - 1 // Ocultar solo si no es el último campo
                           ? 'none'
                           : 'table-cell',
                       fontSize: { xs: '0.75rem', sm: '1rem' },
@@ -250,9 +252,9 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
                     {header.isPlaceholder
                       ? null
                       : flexRender(
-                          header.column.columnDef.header ?? header.column.columnDef.Header,
-                          header.getContext(),
-                        )}
+                        header.column.columnDef.header ?? header.column.columnDef.Header,
+                        header.getContext(),
+                      )}
                   </TableCell>
                 ))}
               </TableRow>
@@ -269,8 +271,8 @@ const TablaDinamicaMonitoreo = ({ titulo, columnas, data, ruta, rutaEliminar, ru
                     sx={{
                       display:
                         (isSmallScreen || isMediumScreen) &&
-                        cell.column.columnDef.hideOnSmallScreen &&
-                        index !== row.getVisibleCells().length - 1 // Ocultar solo si no es el último campo
+                          cell.column.columnDef.hideOnSmallScreen &&
+                          index !== row.getVisibleCells().length - 1 // Ocultar solo si no es el último campo
                           ? 'none'
                           : 'table-cell',
                       fontSize: { xs: '0.75rem', sm: '1rem' },
