@@ -41,17 +41,25 @@ const Menu = () => {
     { icon: <FaPaw className="text-orange-500" />, type: 'Monitoreo de Fauna', community: 'San Juan Guichicovi', date: '3 de marzo del 2025', action: <FaEdit /> },
   ];
 
-  // Función para actualizar la cantidad de items por página según el tamaño de la pantalla
-  const updateItemsPerPage = () => {
-    const width = window.innerWidth;
-    if (width < 640) {
-      setItemsPerPage(3); // Pantallas pequeñas (sm)
-    } else if (width >= 340 && width < 1024) {
-      setItemsPerPage(5); // Pantallas medianas (md)
-    } else {
-      setItemsPerPage(8); // Pantallas grandes (lg)
-    }
-  };
+// Función para actualizar la cantidad de items por página según el tamaño de la pantalla
+const updateItemsPerPage = () => {
+  const width = window.innerWidth;
+
+  if (width < 640) {
+    // Pantallas pequeñas (sm)
+    setItemsPerPage(4);
+  } else if (width >= 640 && width < 768) {
+    // Pantallas medianas (md)
+    setItemsPerPage(6);
+  } else if (width >= 768 && width < 1024) {
+    // Pantallas grandes (lg) en orientación vertical o tablets grandes
+    setItemsPerPage(8);
+  } else {
+    // Pantallas extra grandes (xl)
+    setItemsPerPage(10);
+  }
+};
+
 
   useEffect(() => {
     updateItemsPerPage(); // Llamada inicial para ajustar según el tamaño de pantalla
@@ -120,7 +128,7 @@ const Menu = () => {
         {menuItems.map((item, index) => (
           <button
             key={index}
-            className={`flex items-center md:flex-col justify-center w-full sm:w-[200px] md:w-[30%] lg:w-[30%] lg:h-[75px] md:h-[90px] rounded-lg ${item.bgColor} text-white hover:bg-opacity-80 transition duration-300 mb-2 mx-2`} // Ajuste de md:w-[30%] para pantallas medianas y lg:w-[32%] para pantallas grandes
+            className={`flex items-center md:flex-col justify-center w-full sm:w-[30%] md:w-[30%] lg:w-[30%] lg:h-[75px] md:h-[90px] sm:h-[220px] rounded-lg ${item.bgColor} text-white hover:bg-opacity-80 transition duration-300 mb-2 mx-2`} // Ajuste de md:w-[30%] para pantallas medianas y lg:w-[32%] para pantallas grandes
             onClick={() => navigate(item.link)}
           >
             {item.icon}
